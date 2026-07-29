@@ -72,19 +72,19 @@ const skillsData = [
 const projectsData = [
   {
     id: 'gigpay',
-    title: 'GigPay Escrow Marketplace',
+    title: 'GigPay Decentralized Escrow Marketplace',
     category: 'Web3 & Blockchain',
     icon: '⛓️',
-    description: 'A decentralized, zero-fee escrow marketplace built natively on the Stellar blockchain for global freelancers. Features an AI estimator, smart contract escrow, and Supabase real-time sync.',
+    description: 'Developed a zero-fee escrow platform on the Stellar blockchain integrating smart contract escrow mechanisms. Designed a secure transaction flow to ensure cryptographic payment integrity and data synchronization for peer-to-peer freelance contracts.',
     tech: ['Stellar', 'Smart Contracts', 'React', 'Supabase'],
     images: ['/projects/gigpay.png']
   },
   {
     id: 'klasspay',
-    title: 'KlassPay Decentralized Split-Payment Engine',
+    title: 'KlassPay Web3 Split-Payment Engine',
     category: 'Web3 & Fintech',
     icon: '💸',
-    description: 'Built and deployed a full-stack decentralized application on the Stellar blockchain using Soroban smart contracts. Implemented FeeBumpTransactions to provide a gasless Web2-like experience. Engineered the frontend using React and Vite, managing on-chain state to securely track pooled funds and organizer withdrawals.',
+    description: 'Engineered a decentralized Web3 application on the Stellar Blockchain utilizing secure wallet authentication and FeeBumpTransactions. Implemented on-chain state management and rigorous smart contract security protocols to securely track pooled funds and prevent unauthorized withdrawals.',
     tech: ['React', 'Vite', 'Soroban', 'Stellar', 'Web3']
   },
   {
