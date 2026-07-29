@@ -81,11 +81,19 @@ const projectsData = [
   },
   {
     id: 'klasspay',
-    title: 'KlassPay Decentralized Split-Billing',
+    title: 'KlassPay Decentralized Split-Payment Engine',
     category: 'Web3 & Fintech',
     icon: '💸',
-    description: 'A decentralized split-billing application leveraging blockchain technology for transparent, automated, and trustless shared group payments.',
-    tech: ['Web3', 'DeFi', 'Smart Contracts']
+    description: 'Built and deployed a full-stack decentralized application on the Stellar blockchain using Soroban smart contracts. Implemented FeeBumpTransactions to provide a gasless Web2-like experience. Engineered the frontend using React and Vite, managing on-chain state to securely track pooled funds and organizer withdrawals.',
+    tech: ['React', 'Vite', 'Soroban', 'Stellar', 'Web3']
+  },
+  {
+    id: 'sorobanauditor',
+    title: 'SorobanAuditor Security Scanner',
+    category: 'Cybersecurity & Web3',
+    icon: '🛡️',
+    description: 'Engineered a hybrid SAST CLI tool in Python to statically analyze Rust-based Stellar Soroban smart contracts. Leveraged AST parsing to inspect contract logic prior to deployment. Implemented automated vulnerability detection mapped to CWE standards for hardcoded secrets and authorization bypasses.',
+    tech: ['Python', 'AST Parsing', 'SAST', 'CLI']
   },
   {
     id: 'cisco-congress',
