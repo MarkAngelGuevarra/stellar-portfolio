@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/api/views.svg",
+      "destination": "/api/views"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

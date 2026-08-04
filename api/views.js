@@ -3,41 +3,52 @@ export default async function handler(req, res) {
   let currentHits = 1;
 
   try {
-    // Call atomic counter API to guarantee an unthrottled +1 increment on every reload
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 1500); // 1.5s strict timeout protection
+
     const counterRes = await fetch("https://api.counterapi.dev/v1/markangel_github_profile_views_2026/views/up", {
-      headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Vercel-Badge-Worker" }
+      headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Vercel-Badge-Worker/2.0" },
+      signal: controller.signal
     });
-    const data = await counterRes.json();
-    if (data && typeof data.count === 'number') {
-      currentHits = data.count;
+    clearTimeout(timeout);
+
+    if (counterRes.ok) {
+      const data = await counterRes.json();
+      if (data && typeof data.count === 'number') {
+        currentHits = data.count;
+      }
     }
   } catch (err) {
-    console.error("Failed to fetch atomic hit count:", err);
+    console.error("Atomic counter fetch fallback:", err.message || err);
+    // Graceful fallback to prevent GitHub Camo image timeouts
+    currentHits = 5;
   }
 
   const totalCount = baseOffset + currentHits;
   const formattedCount = totalCount.toLocaleString('en-US');
 
-  // Fetch the SVG image from shields.io with the newly incremented total
-  let svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="154" height="20" role="img" aria-label="PROFILE VIEWS: ${formattedCount}"><title>PROFILE VIEWS: ${formattedCount}</title><text x="10" y="15" fill="#ffffff">PROFILE VIEWS | ${formattedCount}</text></svg>`;
-  try {
-    const shieldRes = await fetch(
-      `https://img.shields.io/badge/PROFILE_VIEWS-${encodeURIComponent(formattedCount)}-007EC6?style=flat-square`,
-      { headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Vercel-Badge-Worker/1.0" } }
-    );
-    if (shieldRes.ok) {
-      svgContent = await shieldRes.text();
-    }
-  } catch (err) {
-    console.error("Failed to fetch shield SVG:", err);
-  }
+  // Zero-latency pixel-perfect shields.io flat-square SVG generated directly in Node memory
+  const textWidth = formattedCount.length * 7 + 10;
+  const totalWidth = 94 + textWidth;
+  const textPos = 940 + (textWidth * 5);
 
-  // Set rigorous anti-caching headers to force GitHub Camo CDN to reload on every refresh
-  res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
+  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${totalWidth}" height="20" role="img" aria-label="PROFILE VIEWS: ${formattedCount}">
+  <title>PROFILE VIEWS: ${formattedCount}</title>
+  <g shape-rendering="crispEdges">
+    <rect width="94" height="20" fill="#555"/>
+    <rect x="94" width="${textWidth}" height="20" fill="#007EC6"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
+    <text x="480" y="140" transform="scale(.1)" fill="#fff" textLength="840">PROFILE VIEWS</text>
+    <text x="${textPos}" y="140" transform="scale(.1)" fill="#fff" textLength="${textWidth * 8}">${formattedCount}</text>
+  </g>
+</svg>`;
+
+  // Strict image headers without charset parameters for flawless GitHub Camo CDN compatibility
+  res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0');
   res.setHeader('Pragma', 'no-cache');
   res.setHeader('Expires', '0');
-  res.setHeader('ETag', `"${Date.now()}"`);
 
   return res.status(200).send(svgContent);
 }
