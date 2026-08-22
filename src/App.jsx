@@ -205,15 +205,17 @@ const projectsData = [
 const certData = [
   {
     id: 'google-python',
-    title: 'Google IT Automation with Python',
+    title: 'Google IT Automation with Python Professional',
     issuer: 'Google',
     image: '/certs/google-python.png',
     modalImage: '/certs/google-python-full.png',
-    description: 'This six-course certificate, developed by Google, is designed to provide IT professionals with in-demand skills -- including Python, Git, and IT automation.',
+    issueDate: 'July 2026',
+    description: 'A comprehensive multi-course professional program developed by Google engineering. Validates hands-on proficiency in Python scripting, Git/GitHub version control, Linux system administration, and large-scale IT infrastructure automation.',
     difficulty: 'Advanced',
     effort: 'Requires passing rigorous programming assignments, mastering version control with Git, and automating system administration tasks with Python scripts.',
     badgeId: 'ac8499cf-025c-4b72-84b1-92f836ad95b7',
-    verifyUrl: 'https://www.credly.com/badges/ac8499cf-025c-4b72-84b1-92f836ad95b7'
+    verifyUrl: 'https://www.credly.com/badges/ac8499cf-025c-4b72-84b1-92f836ad95b7',
+    skills: ['Python 3', 'Git & GitHub', 'System Automation', 'Bash/Linux CLI', 'Unit Testing', 'Configuration Management']
   },
   {
     id: 'google-cyber',
@@ -221,23 +223,27 @@ const certData = [
     issuer: 'Google',
     image: '/certs/google-cyber.png',
     modalImage: '/certs/google-cyber-full.png',
-    description: 'A comprehensive program covering the fundamental concepts of cybersecurity, including network security, Linux, SQL, and SIEM tools.',
+    issueDate: 'July 2026',
+    description: 'An industry-aligned professional credential covering enterprise cybersecurity operations, threat modeling, SIEM tool analysis, Linux network security, and defensive incident response workflows.',
     difficulty: 'Intermediate',
     effort: 'Requires completing multiple hands-on labs simulating real-world security breaches, configuring firewalls, and analyzing packet captures.',
     badgeId: '851998ed-3d5b-4ed3-93b5-63ec5bb29e60',
-    verifyUrl: 'https://www.credly.com/badges/851998ed-3d5b-4ed3-93b5-63ec5bb29e60'
+    verifyUrl: 'https://www.credly.com/badges/851998ed-3d5b-4ed3-93b5-63ec5bb29e60',
+    skills: ['SIEM (Splunk/Chronicle)', 'Network Security', 'Python for Security', 'Linux & SQL', 'Incident Detection', 'NIST Framework']
   },
   {
     id: 'aws-cloud',
-    title: 'AWS Academy Cloud Operations',
-    issuer: 'AWS',
+    title: 'AWS Academy Graduate: Cloud Operations',
+    issuer: 'Amazon Web Services',
     image: '/certs/aws-cloud.png',
     modalImage: '/certs/aws-cloud-full.png',
-    description: 'Prepares students for entry-level cloud computing careers, focusing on deploying, managing, and operating scalable systems on AWS.',
+    issueDate: 'January 2026',
+    description: 'Prepares IT professionals for enterprise cloud operations, focusing on deploying, managing, securing, and operating scalable, fault-tolerant infrastructure on Amazon Web Services (AWS).',
     difficulty: 'Advanced',
     effort: 'Requires a deep understanding of AWS services, networking, and security, proven through complex infrastructure deployment labs.',
-    badgeId: 'AWS Academy Graduate',
-    verifyUrl: '#'
+    badgeId: '8a510a04-b86d-4170-afc3-34e387a1a4e7',
+    verifyUrl: 'https://www.credly.com/org/amazon-web-services/badge/aws-academy-graduate-aws-academy-cloud-operations',
+    skills: ['AWS EC2 & S3', 'IAM & Security Policies', 'VPC & Networking', 'CloudWatch Monitoring', 'High Availability']
   },
   {
     id: 'microsoft-excel',
@@ -245,155 +251,181 @@ const certData = [
     issuer: 'Microsoft',
     image: '/certs/microsoft.png',
     modalImage: '/certs/microsoft-full.png',
-    description: 'Validates skills in creating and managing worksheets and workbooks, creating cells and ranges, creating tables, and applying formulas and functions.',
+    issueDate: '2024',
+    description: 'Validates professional mastery in advanced spreadsheet engineering, nested formula logic, dynamic data modeling, workbook optimization, and executive reporting analytics.',
     difficulty: 'Intermediate',
     effort: 'Requires passing a strict, timed, proctored exam demonstrating mastery over advanced data manipulation and complex nested formulas.',
     badgeId: '47299149',
-    verifyUrl: 'https://verify.certiport.com'
-  },
-  {
-    id: 'cisco-cyber',
-    title: 'Introduction to Cybersecurity',
-    issuer: 'Cisco',
-    image: '/certs/cisco-cyber.png',
-    modalImage: '/certs/cisco-cyber-full.png',
-    description: 'Explores cyber trends, threats, and staying safe in cyberspace, protecting personal and company data.',
-    difficulty: 'Beginner',
-    effort: 'Requires understanding core security principles, threat vectors, and basic mitigation strategies.',
-    badgeId: '437f35d9-be6e-42d4-90f7-3b221725e2d5',
-    verifyUrl: 'https://www.credly.com/badges/437f35d9-be6e-42d4-90f7-3b221725e2d5'
+    verifyUrl: 'https://verify.certiport.com',
+    skills: ['Advanced Formulas', 'Data Analysis', 'Pivot Tables & Charts', 'Lookup Functions', 'Workbook Optimization']
   },
   {
     id: 'cisco-ethical',
     title: 'Ethical Hacker',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-ethical.png',
     modalImage: '/certs/cisco-ethical-full.png',
-    description: 'Focuses on offensive security tactics to discover and patch vulnerabilities before malicious actors can exploit them.',
+    issueDate: 'July 2025',
+    description: 'Offensive security certification focusing on penetration testing methodologies, network reconnaissance, vulnerability identification, exploitation techniques, and defensive hardening.',
     difficulty: 'Advanced',
     effort: 'Requires passing intensive penetration testing labs, mastering reconnaissance, scanning, gaining access, and covering tracks.',
     badgeId: 'b5d36473-5cfb-4281-85ea-a4f26ae85439',
-    verifyUrl: 'https://www.credly.com/badges/b5d36473-5cfb-4281-85ea-a4f26ae85439'
+    verifyUrl: 'https://www.credly.com/badges/b5d36473-5cfb-4281-85ea-a4f26ae85439',
+    skills: ['Penetration Testing', 'Reconnaissance & Footprinting', 'Vulnerability Exploitation', 'Post-Exploitation', 'Threat Remediation']
   },
   {
     id: 'cisco-linux',
     title: 'Linux Essentials',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-linux.png',
     modalImage: '/certs/cisco-linux-full.png',
-    description: 'Validates foundational knowledge in the Linux operating system and open-source software.',
+    issueDate: '2025',
+    description: 'Validates foundational and practical knowledge of open-source Linux operating systems, terminal file management, permission structures, process handling, and Bash scripting.',
     difficulty: 'Intermediate',
     effort: 'Requires navigating the Linux command line, managing files, understanding permissions, and basic bash scripting.',
     badgeId: 'dd8c9f3f-ebc3-4b1c-bafe-ba3721074683',
-    verifyUrl: 'https://www.credly.com/badges/dd8c9f3f-ebc3-4b1c-bafe-ba3721074683'
+    verifyUrl: 'https://www.credly.com/badges/dd8c9f3f-ebc3-4b1c-bafe-ba3721074683',
+    skills: ['Linux Kernel & Shell', 'File Permissions & Users', 'Bash Scripting', 'Package Management', 'Process Control']
   },
   {
     id: 'cisco-networking',
     title: 'Networking Basics',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-networking.png',
     modalImage: '/certs/cisco-networking-full.png',
-    description: 'Covers the architecture, structure, functions, components, and models of the Internet and other computer networks.',
+    issueDate: '2025',
+    description: 'Covers the core architecture, protocols, models (OSI and TCP/IP), IPv4/IPv6 addressing schemes, and subnetting strategies used to power modern enterprise networks.',
     difficulty: 'Intermediate',
     effort: 'Requires understanding the OSI and TCP/IP models, IP addressing, and configuring basic network topologies.',
     badgeId: '3fd3c79f-1906-4631-a788-986747166767',
-    verifyUrl: 'https://www.credly.com/badges/3fd3c79f-1906-4631-a788-986747166767'
+    verifyUrl: 'https://www.credly.com/badges/3fd3c79f-1906-4631-a788-986747166767',
+    skills: ['OSI & TCP/IP Models', 'IPv4 & IPv6 Subnetting', 'Cisco IOS CLI', 'Routing & Switching Basics', 'Topology Design']
   },
   {
     id: 'cisco-os-basics',
     title: 'Operating Systems Basics',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-os-basics.png',
     modalImage: '/certs/cisco-os-basics-full.png',
-    description: 'Provides a foundational understanding of operating system configuration and management.',
+    issueDate: '2025',
+    description: 'Provides in-depth knowledge of operating system architectures, memory management, process synchronization, security perimeters, and cross-platform management.',
     difficulty: 'Beginner',
     effort: 'Requires grasping process management, memory management, and file systems across Windows and Linux environments.',
     badgeId: 'f7bc993d-1a03-4257-af44-911cce59d82a',
-    verifyUrl: 'https://www.credly.com/badges/f7bc993d-1a03-4257-af44-911cce59d82a'
+    verifyUrl: 'https://www.credly.com/badges/f7bc993d-1a03-4257-af44-911cce59d82a',
+    skills: ['Process Scheduling', 'Virtual Memory & File Systems', 'Windows & Linux Admin', 'Hardware Abstraction']
   },
   {
     id: 'cisco-hardware',
     title: 'Computer Hardware Basics',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-hardware.png',
     modalImage: '/certs/cisco-hardware-full.png',
-    description: 'Focuses on the internal components of a computer, assembling a system, and troubleshooting hardware issues.',
+    issueDate: '2025',
+    description: 'Focuses on motherboard architectures, CPU/GPU subsystems, storage bus technologies, memory configurations, diagnostics, and component lifecycle maintenance.',
     difficulty: 'Beginner',
     effort: 'Requires identifying components, understanding their functions, and solving practical hardware failure scenarios.',
     badgeId: '5d7f447d-c596-49f3-b780-cfb8a831c15d',
-    verifyUrl: 'https://www.credly.com/badges/5d7f447d-c596-49f3-b780-cfb8a831c15d'
+    verifyUrl: 'https://www.credly.com/badges/5d7f447d-c596-49f3-b780-cfb8a831c15d',
+    skills: ['PC Architecture', 'Motherboard & CPU Diagnostics', 'Storage & RAID', 'Hardware Assembly & Safety']
   },
   {
     id: 'cisco-ite',
     title: 'IT Essentials',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-ite.png',
     modalImage: '/certs/cisco-ite-full.png',
-    description: 'A comprehensive curriculum covering PC hardware and software, mobile devices, networking, and troubleshooting.',
+    issueDate: '2025',
+    description: 'Comprehensive curriculum spanning computer hardware, operating systems, mobile devices, security basics, networking protocols, and enterprise troubleshooting.',
     difficulty: 'Intermediate',
     effort: 'Requires passing extensive theoretical exams and practical labs covering hardware diagnostics and software configurations.',
     badgeId: '8c6d1b2e-3905-424e-ae40-0cffdded1655',
-    verifyUrl: 'https://www.credly.com/badges/8c6d1b2e-3905-424e-ae40-0cffdded1655'
+    verifyUrl: 'https://www.credly.com/badges/8c6d1b2e-3905-424e-ae40-0cffdded1655',
+    skills: ['Hardware & Software Diagnostics', 'Operating System Installation', 'Networking Setup', 'Client Security Protocols']
   },
   {
     id: 'cisco-ai',
     title: 'Introduction to Modern AI',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-ai.png',
     modalImage: '/certs/cisco-ai-full.png',
-    description: 'Explores the foundations of Artificial Intelligence, Machine Learning, and their real-world applications.',
+    issueDate: '2026',
+    description: 'Explores artificial intelligence paradigms, neural networks, machine learning algorithms, large language models (LLMs), and ethical AI deployment in enterprise environments.',
     difficulty: 'Intermediate',
     effort: 'Requires grasping the concepts of neural networks, data modeling, and ethical considerations in AI deployment.',
     badgeId: 'b0527a73-a92c-4ab2-85dd-27e529084793',
-    verifyUrl: 'https://www.credly.com/badges/b0527a73-a92c-4ab2-85dd-27e529084793'
+    verifyUrl: 'https://www.credly.com/badges/b0527a73-a92c-4ab2-85dd-27e529084793',
+    skills: ['Neural Networks', 'Machine Learning Workflows', 'Generative AI & LLMs', 'AI Ethics & Deployment']
   },
   {
     id: 'cisco-iot',
     title: 'Introduction to IoT',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-iot.png',
     modalImage: '/certs/cisco-iot-full.png',
-    description: 'Covers the Internet of Things, transforming digital business by connecting billions of smart devices.',
+    issueDate: '2025',
+    description: 'Covers edge device sensors, embedded architectures, industrial telemetry, wireless IoT standards, and telemetry data pipeline integration with cloud backends.',
     difficulty: 'Beginner',
     effort: 'Requires understanding IoT architectures, sensor networks, and data flow from edge devices to the cloud.',
     badgeId: '14ff4624-5864-47c4-8068-2b35bbd08f8c',
-    verifyUrl: 'https://www.credly.com/badges/14ff4624-5864-47c4-8068-2b35bbd08f8c'
+    verifyUrl: 'https://www.credly.com/badges/14ff4624-5864-47c4-8068-2b35bbd08f8c',
+    skills: ['Sensor Architectures', 'Edge Computing', 'Microcontrollers & Telemetry', 'IoT Security Fundamentals']
   },
   {
     id: 'cisco-data-science',
     title: 'Introduction to Data Science',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-data-science.png',
     modalImage: '/certs/cisco-data-science-full.png',
-    description: 'Provides a foundation in gathering, analyzing, and visualizing data to make informed decisions.',
+    issueDate: '2025',
+    description: 'Provides practical grounding in statistical data analysis, data cleaning pipelines, exploratory visualization, and extracting predictive patterns using Python data stacks.',
     difficulty: 'Intermediate',
     effort: 'Requires applying statistical methods and utilizing Python libraries to extract insights from raw datasets.',
     badgeId: 'e96f5357-69b0-4416-ad9d-d51818948396',
-    verifyUrl: 'https://www.credly.com/badges/e96f5357-69b0-4416-ad9d-d51818948396'
-  },
-  {
-    id: 'cisco-digital-awareness',
-    title: 'Digital Awareness',
-    issuer: 'Cisco',
-    image: '/certs/cisco-digital-awareness.png',
-    modalImage: '/certs/cisco-digital-awareness-full.png',
-    description: 'Focuses on responsible and secure use of digital technologies in professional environments.',
-    difficulty: 'Beginner',
-    effort: 'Requires demonstrating proficiency in digital communication, privacy, and online safety best practices.',
-    badgeId: 'c425f47e-9cb1-4262-95a2-e55f5f630cc4',
-    verifyUrl: 'https://www.credly.com/badges/c425f47e-9cb1-4262-95a2-e55f5f630cc4'
+    verifyUrl: 'https://www.credly.com/badges/e96f5357-69b0-4416-ad9d-d51818948396',
+    skills: ['Data Cleaning & Wrangling', 'Python Analytics', 'Exploratory Data Analysis', 'Statistical Inference']
   },
   {
     id: 'cisco-data-analytics',
     title: 'Data Analytics Essentials',
-    issuer: 'Cisco',
+    issuer: 'Cisco Networking Academy',
     image: '/certs/cisco-data-analytics.png',
     modalImage: '/certs/cisco-data-analytics-full.png',
-    description: 'Covers the fundamentals of data analysis, focusing on transforming data into actionable insights.',
+    issueDate: '2025',
+    description: 'Focuses on analytical reasoning, structured SQL queries, data warehousing concepts, and converting complex enterprise datasets into actionable intelligence.',
     difficulty: 'Intermediate',
     effort: 'Requires building data pipelines, cleaning datasets, and generating comprehensive reports using analytics tools.',
     badgeId: '87cb6c58-e1d1-48c7-96d6-bf68b7b1f243',
-    verifyUrl: 'https://www.credly.com/badges/87cb6c58-e1d1-48c7-96d6-bf68b7b1f243'
+    verifyUrl: 'https://www.credly.com/badges/87cb6c58-e1d1-48c7-96d6-bf68b7b1f243',
+    skills: ['Data Pipelines', 'SQL Data Extraction', 'Visual Reporting', 'KPI Metric Modeling']
+  },
+  {
+    id: 'cisco-cyber',
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco Networking Academy',
+    image: '/certs/cisco-cyber.png',
+    modalImage: '/certs/cisco-cyber-full.png',
+    issueDate: '2025',
+    description: 'Explores global cyber threat landscapes, malware categories, defense-in-depth principles, cryptography foundations, and enterprise data privacy protection.',
+    difficulty: 'Beginner',
+    effort: 'Requires understanding core security principles, threat vectors, and basic mitigation strategies.',
+    badgeId: '437f35d9-be6e-42d4-90f7-3b221725e2d5',
+    verifyUrl: 'https://www.credly.com/badges/437f35d9-be6e-42d4-90f7-3b221725e2d5',
+    skills: ['CIA Triad', 'Malware Analysis', 'Authentication & Cryptography', 'Defense-in-Depth']
+  },
+  {
+    id: 'cisco-digital-awareness',
+    title: 'Digital Awareness',
+    issuer: 'Cisco Networking Academy',
+    image: '/certs/cisco-digital-awareness.png',
+    modalImage: '/certs/cisco-digital-awareness-full.png',
+    issueDate: '2025',
+    description: 'Focuses on digital identity defense, privacy regulations, safe organizational communication, and mitigating social engineering and phishing tactics.',
+    difficulty: 'Beginner',
+    effort: 'Requires demonstrating proficiency in digital communication, privacy, and online safety best practices.',
+    badgeId: 'c425f47e-9cb1-4262-95a2-e55f5f630cc4',
+    verifyUrl: 'https://www.credly.com/badges/c425f47e-9cb1-4262-95a2-e55f5f630cc4',
+    skills: ['Digital Footprint Defense', 'Data Privacy Regulations', 'Phishing & Threat Identification', 'Safe Collaboration']
   },
   {
     id: 'fit-dbms',
@@ -401,11 +433,13 @@ const certData = [
     issuer: 'FIT Academy',
     image: '/certs/fit-academy.png',
     modalImage: '/certs/fit-academy-full.png',
-    description: 'Specialized training in database management and utilizing Microsoft Power BI for advanced business intelligence.',
+    issueDate: '2025',
+    description: 'Specialized enterprise training in relational database schema design, normalized data modeling, DAX query logic, and dynamic Microsoft Power BI dashboard development.',
     difficulty: 'Advanced',
     effort: 'Requires designing complex relational databases and building interactive, dynamic Power BI dashboards from scratch.',
     badgeId: '4abc3aebb5b251a9a4fc3fbbf7a4113023300bb9ec39e6efc4c7b57705c9d749',
-    verifyUrl: '#'
+    verifyUrl: '#',
+    skills: ['Relational DB Design', 'Power BI Dashboards', 'DAX Calculations', 'Data Modeling', 'Business Intelligence']
   },
   {
     id: 'eastwest-cyber1',
@@ -413,11 +447,13 @@ const certData = [
     issuer: 'East West',
     image: '/certs/eastwest-cyber.png',
     modalImage: '/certs/eastwest-cyber-full.png',
-    description: 'Foundational training covering the primary pillars of information security and organizational defense.',
+    issueDate: '2024',
+    description: 'Foundational certification covering the core pillars of organizational security, risk governance, perimeter defense controls, and access management standards.',
     difficulty: 'Beginner',
     effort: 'Requires understanding the CIA triad, risk management, and fundamental access control mechanisms.',
     badgeId: '55dd99a5-f7ff-41d4-8076-484f2fb80e0d',
-    verifyUrl: '#'
+    verifyUrl: '#',
+    skills: ['Information Assurance', 'Risk Management', 'Security Policies & Audits', 'Access Controls']
   }
 ];
 
@@ -498,6 +534,14 @@ function App() {
   const [activeSkill, setActiveSkill] = useState(null);
   const [activeProject, setActiveProject] = useState(null);
   const [formStatus, setFormStatus] = useState('');
+  const [copiedId, setCopiedId] = useState(false);
+
+  const handleCopyId = (id) => {
+    if (!id) return;
+    navigator.clipboard.writeText(id);
+    setCopiedId(true);
+    setTimeout(() => setCopiedId(false), 2000);
+  };
   
   // Custom Cursor logic
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -842,39 +886,122 @@ function App() {
       {/* Certification Modal */}
       {activeCert && (
         <div className="modal-backdrop" onClick={closeCertModal}>
-          <div className="modal-content glass-panel" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-content modal-large glass-panel" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close clickable-card" onClick={closeCertModal}>✕</button>
-            <a href={activeCert.modalImage || activeCert.image} target="_blank" rel="noreferrer" title="Click to view full size">
-              <img src={activeCert.modalImage || activeCert.image} alt={activeCert.title} className="modal-image clickable-card" />
+            
+            {/* Framed Certificate Preview */}
+            <a 
+              href={activeCert.modalImage || activeCert.image} 
+              target="_blank" 
+              rel="noreferrer" 
+              title="Click to expand high-resolution certificate"
+              className="cert-showcase-frame clickable-card"
+            >
+              <img 
+                src={activeCert.modalImage || activeCert.image} 
+                alt={activeCert.title} 
+                className="cert-showcase-img" 
+              />
+              <span className="cert-zoom-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Click to Expand Full Credential
+              </span>
             </a>
             
-            <div className="modal-header">
-              <h2 className="modal-title">{activeCert.title}</h2>
-              <span className="cert-issuer modal-issuer">{activeCert.issuer}</span>
-            </div>
-            
-            <p className="modal-description">{activeCert.description}</p>
-            
-            <div className="verification-box">
-              <div className="verification-info">
-                <span className="verification-label">Credential ID</span>
-                <span className="verification-id">{activeCert.badgeId}</span>
-              </div>
-              <a href={activeCert.verifyUrl} target="_blank" rel="noreferrer" className="btn-primary verify-btn clickable-card">
-                Verify Authenticity
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
-            </div>
-
-            <div className="modal-difficulty-box">
-              <div className="difficulty-header">
-                <h3>Acquisition Effort</h3>
+            {/* Header and Badges */}
+            <div className="modal-project-header">
+              <h2 className="modal-title" style={{ fontSize: '1.6rem', marginBottom: '0.6rem' }}>{activeCert.title}</h2>
+              <div className="modal-meta-row">
+                <span className="cert-issuer modal-issuer">{activeCert.issuer}</span>
+                <span className="cert-status-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified & Active Credential
+                </span>
+                {activeCert.issueDate && (
+                  <span className="modal-date-badge">📅 {activeCert.issueDate}</span>
+                )}
                 <span className={`difficulty-badge ${activeCert.difficulty.toLowerCase()}`}>
-                  {activeCert.difficulty}
+                  {activeCert.difficulty} Level
                 </span>
               </div>
-              <p className="modal-effort">{activeCert.effort}</p>
             </div>
+
+            {/* Overview Section */}
+            <div className="project-modal-section-title">
+              <span>📜</span> Credential Overview
+            </div>
+            <p className="cert-overview-box">{activeCert.description}</p>
+
+            {/* Skills & Competencies */}
+            {activeCert.skills && activeCert.skills.length > 0 && (
+              <>
+                <div className="project-modal-section-title">
+                  <span>🎯</span> Core Competencies Validated
+                </div>
+                <div className="cert-competencies-wrap">
+                  {activeCert.skills.map((skill, idx) => (
+                    <span key={idx} className="cert-competency-chip">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Acquisition Rigor */}
+            <div className="cert-rigor-card">
+              <div className="cert-rigor-header">
+                <h4>
+                  <span>⚡</span> Curriculum Rigor & Examination Criteria
+                </h4>
+              </div>
+              <p className="cert-rigor-text">{activeCert.effort}</p>
+            </div>
+
+            {/* Verification Box */}
+            <div className="cert-verification-card">
+              <div className="cert-verification-top">
+                <div className="credential-label-wrap">
+                  <span className="credential-label">Official Credential ID</span>
+                  <span className="credential-id-val">{activeCert.badgeId}</span>
+                </div>
+                <button 
+                  className="copy-id-btn clickable-card"
+                  onClick={() => handleCopyId(activeCert.badgeId)}
+                >
+                  {copiedId ? (
+                    <>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                      Copy ID
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {activeCert.verifyUrl && activeCert.verifyUrl !== '#' && (
+                <a 
+                  href={activeCert.verifyUrl} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="btn-primary cert-verify-action-btn clickable-card"
+                >
+                  Verify on Official Registry
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              )}
+            </div>
+
+            <div className="project-modal-footer">
+              <button className="btn-secondary clickable-card" onClick={closeCertModal}>
+                Close Credential
+              </button>
+            </div>
+
           </div>
         </div>
       )}
