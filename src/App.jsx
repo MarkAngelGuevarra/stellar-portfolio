@@ -846,10 +846,10 @@ function App() {
                   <a href="mailto:marcangelguevarra@gmail.com" className="contact-link clickable-card">
                     📧 marcangelguevarra@gmail.com
                   </a>
-                  <a href="https://www.linkedin.com/in/mark-angel-guevarra/" target="_blank" rel="noreferrer" className="contact-link clickable-card">
+                  <a href="https://www.linkedin.com/in/markangelguevarra" target="_blank" rel="noreferrer" className="contact-link clickable-card">
                     💼 LinkedIn Profile
                   </a>
-                  <a href="https://github.com/Markyy0411" target="_blank" rel="noreferrer" className="contact-link clickable-card">
+                  <a href="https://github.com/MarkAngelGuevarra" target="_blank" rel="noreferrer" className="contact-link clickable-card">
                     🐙 GitHub Repositories
                   </a>
                 </div>
