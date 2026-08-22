@@ -71,62 +71,134 @@ const skillsData = [
 
 const projectsData = [
   {
+    id: 'cisco-congress',
+    title: 'Cisco Networking Academy Student Congress 2026',
+    category: 'Cybersecurity & Enterprise Networking',
+    icon: '🏆',
+    role: 'Baliuag University Delegate & Competitor',
+    date: 'January 2026 • Pampanga, Philippines',
+    description: 'Selected as official student delegate for Baliuag University at the 2026 Cisco Student Congress. Engaged with industry leaders, analyzed next-generation enterprise networking architectures, and competed in team-based network configuration and cybersecurity Capture-The-Flag (CTF) challenges on physical Cisco equipment.',
+    tech: ['Cisco IOS', 'Enterprise Routing (OSPF/EIGRP)', 'Network Security & ACLs', 'Packet Analysis', 'Team CTF'],
+    highlights: [
+      'Represented Baliuag University in regional technical conferences and hands-on networking competitions.',
+      'Configured physical Cisco routers, switches, and security appliances under strict time constraints.',
+      'Solved defensive cybersecurity CTF scenarios and analyzed packet captures in real-time.'
+    ],
+    gallery: [
+      {
+        src: '/projects/cisco-1.jpg',
+        title: 'Official Event Stage & Convention Backdrop',
+        tag: 'Official Venue',
+        description: 'The main stage and assembly of the 2026 Cisco Networking Academy Student Congress, convening leading IT student delegates, university faculty, and Cisco networking professionals under the theme of future-proofing enterprise networking skills.'
+      },
+      {
+        src: '/projects/cisco-2.jpg',
+        title: 'Baliuag University Delegation & CTF Lab Team',
+        tag: 'Competition & Lab Session',
+        description: 'Our university delegate team collaborating on-site during hands-on network cabling, topology routing setups, and defensive cybersecurity problem-solving on enterprise Cisco switches.'
+      }
+    ]
+  },
+  {
     id: 'gigpay',
-    title: 'GigPay Decentralized Escrow Marketplace',
+    title: 'GigPay — Decentralized Escrow Marketplace',
     category: 'Web3 & Blockchain',
     icon: '⛓️',
-    description: 'Developed a zero-fee escrow platform on the Stellar blockchain integrating smart contract escrow mechanisms. Designed a secure transaction flow to ensure cryptographic payment integrity and data synchronization for peer-to-peer freelance contracts.',
-    tech: ['Stellar', 'Smart Contracts', 'React', 'Supabase'],
-    images: ['/projects/gigpay.png']
+    role: 'Web3 & Backend Developer',
+    date: '2026',
+    description: 'A zero-fee peer-to-peer freelance escrow platform built on the Stellar blockchain. Automates trustless milestone fund release through custom smart contracts while ensuring cryptographic non-repudiation and off-chain data synchronization.',
+    tech: ['Stellar Blockchain', 'Soroban Smart Contracts', 'React', 'Supabase PostgreSQL'],
+    highlights: [
+      'Eliminated third-party escrow commission fees using on-chain smart contract conditions.',
+      'Synchronized real-time dispute resolution workflows and transaction history with Supabase.',
+      'Designed a non-custodial milestone-based fund disbursement protocol.'
+    ],
+    gallery: [
+      {
+        src: '/projects/gigpay.png',
+        title: 'GigPay Platform Dashboard',
+        tag: 'Platform Architecture',
+        description: 'User interface demonstrating active freelance agreements, cryptographic milestone validation, and transparent on-chain escrow transaction auditing.'
+      }
+    ],
+    github: 'https://github.com/MarkAngelGuevarra/GigPay'
   },
   {
     id: 'klasspay',
-    title: 'KlassPay Web3 Split-Payment Engine',
+    title: 'KlassPay — Web3 Split-Payment Protocol',
     category: 'Web3 & Fintech',
     icon: '💸',
-    description: 'Engineered a decentralized Web3 application on the Stellar Blockchain utilizing secure wallet authentication and FeeBumpTransactions. Implemented on-chain state management and rigorous smart contract security protocols to securely track pooled funds and prevent unauthorized withdrawals.',
-    tech: ['React', 'Vite', 'Soroban', 'Stellar', 'Web3']
+    role: 'Full-Stack Web3 Developer',
+    date: '2026',
+    description: 'A decentralized shared-expense and split-payment application on the Stellar blockchain. Uses non-custodial smart contracts and Freighter wallet integration with FeeBumpTransaction support for smooth, gas-optimized pool payouts.',
+    tech: ['React', 'Vite', 'Soroban', 'Stellar SDK', 'TypeScript', 'Web3'],
+    highlights: [
+      'Integrated Freighter wallet authentication with seamless transaction signing.',
+      'Engineered smart contracts to safely lock, track, and disburse split contributions.',
+      'Implemented FeeBumpTransaction optimization for friction-free end-user transactions.'
+    ],
+    github: 'https://github.com/MarkAngelGuevarra/KlassPay'
   },
   {
     id: 'sorobanauditor',
-    title: 'SorobanAuditor Security Scanner',
-    category: 'Cybersecurity & Web3',
+    title: 'SorobanAuditor — Smart Contract Security Scanner',
+    category: 'Cybersecurity & Web3 SAST',
     icon: '🛡️',
-    description: 'Engineered a hybrid SAST CLI tool in Python to statically analyze Rust-based Stellar Soroban smart contracts. Leveraged AST parsing to inspect contract logic prior to deployment. Implemented automated vulnerability detection mapped to CWE standards for hardcoded secrets and authorization bypasses.',
-    tech: ['Python', 'AST Parsing', 'SAST', 'CLI']
-  },
-  {
-    id: 'cisco-congress',
-    title: 'Cisco Student Congress',
-    category: 'Cybersecurity & Networking',
-    icon: '🏆',
-    description: 'Selected to represent Baliuag University at the 2026 Cisco Congress in Pampanga. Solved physical routing and cybersecurity CTF challenges using enterprise Cisco equipment.',
-    tech: ['Cisco iOS', 'Cybersecurity', 'CTF', 'Routing'],
-    images: ['/projects/cisco-1.jpg', '/projects/cisco-2.jpg']
+    role: 'Lead Security Engineer & Developer',
+    date: '2026',
+    description: 'A specialized Static Application Security Testing (SAST) CLI framework developed in Python to audit Rust-based Stellar Soroban smart contracts for authorization bypasses, reentrancy vulnerabilities, and exposed secrets before mainnet deployment.',
+    tech: ['Python', 'AST Analysis', 'SAST', 'Rust Soroban', 'CWE Mapping', 'CLI'],
+    highlights: [
+      'Implemented Abstract Syntax Tree (AST) parsing to statically inspect contract execution paths.',
+      'Automated detection of OWASP & CWE smart contract vulnerability patterns.',
+      'Generated standardized audit reports with CVSS severity ratings and developer remediation guides.'
+    ],
+    github: 'https://github.com/MarkAngelGuevarra/SorobanAuditor'
   },
   {
     id: 'packet-tracer',
-    title: 'Enterprise Network Topology',
-    category: 'Cisco Networking',
+    title: 'Enterprise Multi-Site Secure Network Simulation',
+    category: 'Cisco Enterprise Networking',
     icon: '🌐',
-    description: 'Designed and simulated a comprehensive enterprise network architecture using Cisco Packet Tracer. Implemented VLANs, OSPF routing, and ACLs for secure subnetwork communication.',
-    tech: ['Cisco iOS', 'OSPF', 'VLAN', 'ACL']
+    role: 'Network Security Architect',
+    date: '2025 – 2026',
+    description: 'Designed and simulated a redundant multi-branch enterprise network topology in Cisco Packet Tracer. Features dynamic multi-area OSPF with MD5 authentication, GRE over IPSec VPN tunnels, VLAN segmentation, and perimeter firewall security.',
+    tech: ['Cisco IOS', 'Multi-Area OSPF', 'IPSec VPN', 'GRE Tunneling', 'VLAN / Trunking', 'Extended ACLs'],
+    highlights: [
+      'Implemented encrypted site-to-site communication via IPSec VPN and GRE tunneling.',
+      'Hardened layer 2/3 infrastructure using DHCP Snooping, Dynamic ARP Inspection (DAI), and port security.',
+      'Structured VLSM subnetting across departmental segments with extended access control lists.'
+    ]
   },
   {
     id: 'securesync',
-    title: 'SecureSync Implementation',
-    category: 'Cybersecurity',
+    title: 'SecureSync Zero-Trust IAM Framework',
+    category: 'Cybersecurity & IAM',
     icon: '🔐',
-    description: 'Deployed a robust identity and access management framework enforcing zero-trust principles. Automated credential rotation and integrated multi-factor authentication protocols.',
-    tech: ['IAM', 'Python', 'Cryptography', 'Bash']
+    role: 'Security Engineer',
+    date: '2025',
+    description: 'An enterprise Identity and Access Management (IAM) framework built to enforce least-privilege access and zero-trust authentication across hybrid network assets, automated credential rotation, and multi-factor authentication policies.',
+    tech: ['Zero Trust', 'IAM Protocols', 'Python', 'Cryptography', 'Bash Automation'],
+    highlights: [
+      'Engineered automated credential rotation scripts with cryptographic hashing.',
+      'Implemented role-based access control (RBAC) schemas adhering to NIST cybersecurity standards.',
+      'Integrated real-time authentication logging and anomaly notification triggers.'
+    ]
   },
   {
     id: 'mms',
-    title: 'Maintenance Monitoring System',
+    title: 'Centralized Maintenance & Monitoring System (MMS)',
     category: 'IT Automation & Analytics',
     icon: '📈',
-    description: 'Developed an MVP for a centralized IT monitoring dashboard. Aggregates system health metrics, automates alert dispatching, and visualizes uptime data via interactive reports.',
-    tech: ['Power BI', 'SQL', 'Python Scripts']
+    role: 'Systems Analyst & Developer',
+    date: '2025',
+    description: 'A proactive IT infrastructure monitoring and maintenance reporting MVP. Collects real-time server health and network telemetry, automates threshold alert dispatching, and renders executive health dashboards.',
+    tech: ['Power BI', 'SQL Server', 'Python Scripts', 'IT Operations'],
+    highlights: [
+      'Automated daily server health check routines and alert notifications via Python.',
+      'Constructed interactive Power BI KPI dashboards for system uptime and incident tracking.',
+      'Optimized SQL database queries for rapid historical telemetry analysis.'
+    ]
   }
 ];
 
@@ -837,21 +909,97 @@ function App() {
       {/* Project Modal */}
       {activeProject && (
         <div className="modal-backdrop" onClick={closeProjectModal}>
-          <div className="modal-content glass-panel" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-content modal-large glass-panel" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close clickable-card" onClick={closeProjectModal}>✕</button>
-            <div className="modal-header">
-              <h2 className="modal-title">{activeProject.title}</h2>
-              <span className="cert-issuer modal-issuer">{activeProject.category}</span>
-            </div>
-            <p className="modal-description" style={{marginTop: '1rem', marginBottom: '1.5rem'}}>{activeProject.description}</p>
             
-            {activeProject.images && (
-              <div className="project-modal-gallery" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-                {activeProject.images.map((img, idx) => (
-                  <img key={idx} src={img} alt={`Project Event ${idx+1}`} style={{ width: '100%', maxHeight: '350px', borderRadius: '8px', objectFit: 'contain', border: '1px solid rgba(255,255,255,0.1)' }} />
-                ))}
+            <div className="modal-project-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <span style={{ fontSize: '2rem' }}>{activeProject.icon}</span>
+                <h2 className="modal-title">{activeProject.title}</h2>
               </div>
+              <div className="modal-meta-row">
+                <span className="cert-issuer modal-issuer">{activeProject.category}</span>
+                {activeProject.role && (
+                  <span className="modal-role-badge">👤 {activeProject.role}</span>
+                )}
+                {activeProject.date && (
+                  <span className="modal-date-badge">📅 {activeProject.date}</span>
+                )}
+              </div>
+            </div>
+
+            <div className="project-modal-section-title">
+              <span>📋</span> Executive Summary
+            </div>
+            <p className="project-modal-overview">{activeProject.description}</p>
+            
+            {activeProject.highlights && activeProject.highlights.length > 0 && (
+              <>
+                <div className="project-modal-section-title">
+                  <span>⚡</span> Key Technical Highlights
+                </div>
+                <div className="project-highlights-box">
+                  <ul className="project-highlights-list">
+                    {activeProject.highlights.map((item, idx) => (
+                      <li key={idx}>
+                        <span className="highlight-bullet">▸</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </>
             )}
+
+            <div className="project-modal-section-title">
+              <span>🛠️</span> Technologies & Competencies
+            </div>
+            <div className="project-tech-list" style={{ marginBottom: '1.75rem' }}>
+              {activeProject.tech.map((t, idx) => (
+                <span key={idx} className="tech-badge" style={{ background: 'rgba(34, 211, 238, 0.1)', color: 'var(--text-primary)', borderColor: 'rgba(34, 211, 238, 0.25)', fontWeight: '600' }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            {activeProject.gallery && activeProject.gallery.length > 0 && (
+              <>
+                <div className="project-modal-section-title">
+                  <span>📸</span> Photographic Evidence & Field Documentation
+                </div>
+                <div className="project-gallery-container">
+                  {activeProject.gallery.map((item, idx) => (
+                    <div key={idx} className="gallery-card">
+                      <div className="gallery-img-wrap">
+                        <img 
+                          src={item.src} 
+                          alt={item.title} 
+                          className="gallery-img" 
+                        />
+                        {item.tag && <span className="gallery-badge">{item.tag}</span>}
+                      </div>
+                      <div className="gallery-info">
+                        <h4 className="gallery-title">{item.title}</h4>
+                        <p className="gallery-desc">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            <div className="project-modal-footer">
+              {activeProject.github && (
+                <a href={activeProject.github} target="_blank" rel="noreferrer" className="btn-primary clickable-card" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  GitHub Repository
+                </a>
+              )}
+              <button className="btn-secondary clickable-card" onClick={closeProjectModal}>
+                Close Overview
+              </button>
+            </div>
+
           </div>
         </div>
       )}
