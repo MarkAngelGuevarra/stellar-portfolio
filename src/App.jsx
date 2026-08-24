@@ -204,6 +204,20 @@ const projectsData = [
 
 const certData = [
   {
+    id: 'qualys-vmdr',
+    title: 'Qualys Certified Specialist: Vulnerability Management (VMDR)',
+    issuer: 'Qualys',
+    image: '/certs/qualys-vmdr.png',
+    modalImage: '/certs/qualys-vmdr-full.png',
+    issueDate: 'August 2026',
+    description: 'An enterprise-grade vulnerability management and threat prioritization certification issued by Qualys. Validates technical mastery in deploying the Qualys Cloud Platform, configuring network/agent sensors, analyzing TruRisk scores (QVS/QDS/ACS), mitigating Real Threat Indicators (RTIs), and executing patch remediation.',
+    difficulty: 'Advanced',
+    effort: 'Requires passing the official Qualys VMDR Specialist certification exam demonstrating mastery over asset discovery, vulnerability scoring, risk-based prioritization, and patch management.',
+    badgeId: '34a46083-ca69-4d71-9213-b176aca517bf',
+    verifyUrl: 'https://www.qualys.com/training/',
+    skills: ['Qualys VMDR', 'TruRisk & QVS/QDS Scoring', 'Vulnerability Assessment', 'Patch Management', 'Asset Tagging & CSAM', 'Threat Prioritization']
+  },
+  {
     id: 'google-python',
     title: 'Google IT Automation with Python Professional',
     issuer: 'Google',
@@ -687,11 +701,13 @@ function App() {
             <div className="hero-subtitle type-wrap">
               <TypeAnimation
                 sequence={[
-                  '> Cybersecurity Analyst_',
+                  '> IT Operations & Security Intern @ Telework PH_',
                   1500,
-                  '> Network Administrator_',
+                  '> Cybersecurity & Threat Analyst_',
                   1500,
-                  '> Cisco Certified Professional_',
+                  '> Qualys Certified Specialist (VMDR)_',
+                  1500,
+                  '> Cisco & AWS Certified Professional_',
                   1500,
                 ]}
                 wrapper="span"
@@ -720,10 +736,10 @@ function App() {
             <div className="about-content glass-panel">
               <h2 className="section-title">About Me</h2>
               <p>
-                Welcome! I'm <strong>Mark Angel Guevarra</strong>, a passionate Information Technology professional specializing in Cybersecurity, Network Administration, and IT Automation. With a strong foundation in building secure, scalable systems, I thrive at the intersection of infrastructure and innovation.
+                Welcome! I'm <strong>Mark Angel Guevarra</strong>, a passionate Information Technology professional specializing in Cybersecurity, Network Administration, Vulnerability Management, and IT Automation. With a strong foundation in building secure, scalable systems, I thrive at the intersection of enterprise infrastructure and technical innovation.
               </p>
               <p>
-                I hold a Bachelor of Science in Information Technology and am driven by continuous learning—having earned 18 industry-recognized certifications from tech leaders like <strong>Google, Cisco, AWS, and Microsoft</strong>. Whether it's defending networks against emerging threats, automating complex workflows with Python, or engineering cloud solutions, I am dedicated to creating secure and highly efficient digital environments.
+                I hold a Bachelor of Science in Information Technology and am driven by continuous learning—having earned 19 industry-recognized certifications from global tech leaders like <strong>Qualys, Google, Cisco, AWS, and Microsoft</strong>. Currently contributing as an <strong>IT Operations & Security Intern at Telework PH</strong>, I actively apply my skills across enterprise hardware, Slack-driven helpdesk triage, vulnerability remediation, and network defense to create resilient digital environments.
               </p>
             </div>
           </section>
@@ -737,9 +753,18 @@ function App() {
               <div className="timeline-item">
                 <div className="timeline-dot"></div>
                 <div className="timeline-content glass-panel">
+                  <h3>IT Operations & Security Intern</h3>
+                  <span className="timeline-date">Telework PH • Aug 2026 – Present</span>
+                  <p>Supporting enterprise IT operations, hardware diagnostics, desktop provisioning, Slack helpdesk triage, and network troubleshooting in a fast-paced BPO environment.</p>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-dot"></div>
+                <div className="timeline-content glass-panel">
                   <h3>Cybersecurity Analyst</h3>
                   <span className="timeline-date">Recent Focus</span>
-                  <p>Specializing in penetration testing, threat mitigation, and deploying robust IAM protocols to defend enterprise architectures.</p>
+                  <p>Specializing in vulnerability management (Qualys VMDR), threat mitigation, TruRisk scoring, and deploying robust IAM protocols to defend enterprise architectures.</p>
                 </div>
               </div>
 
@@ -757,7 +782,7 @@ function App() {
                 <div className="timeline-content glass-panel">
                   <h3>BS Information Technology</h3>
                   <span className="timeline-date">Educational Foundation</span>
-                  <p>Developed a rigorous foundation in software engineering, database management, and systems administration.</p>
+                  <p>Developed a rigorous foundation in software engineering, database management, network security, and systems administration at Baliuag University.</p>
                 </div>
               </div>
 
