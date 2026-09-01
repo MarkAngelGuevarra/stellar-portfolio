@@ -137,6 +137,20 @@ const projectsData = [
       'Engineered smart contracts to safely lock, track, and disburse split contributions.',
       'Implemented FeeBumpTransaction optimization for friction-free end-user transactions.'
     ],
+    gallery: [
+      {
+        src: '/projects/klasspay-1.png',
+        title: 'KlassPay Web3 Application & Gasless Pooling Interface',
+        tag: 'Platform UI',
+        description: 'Decentralized split-payment application interface featuring gasless FeeBumpTransaction sponsorship, trustless pooling milestones, and local fiat e-wallet offramp integration.'
+      },
+      {
+        src: '/projects/klasspay-2.png',
+        title: 'APAC Stellar Demo Day Manila Selection',
+        tag: 'Demo Day Finalist',
+        description: 'Selected project submission showcased at the APAC Stellar Demo Day Manila hosted at the GCash Office, competing for the $60,000 regional prize pool.'
+      }
+    ],
     github: 'https://github.com/MarkAngelGuevarra/KlassPay'
   },
   {
