@@ -204,6 +204,20 @@ const projectsData = [
 
 const certData = [
   {
+    id: 'fortinet-operator',
+    title: 'FortiGate 7.6 Operator',
+    issuer: 'Fortinet Training Institute',
+    image: '/certs/fortinet-operator.png',
+    modalImage: '/certs/fortinet-operator-full.png',
+    issueDate: 'September 2026',
+    description: 'Validates operational mastery over FortiOS 7.6 and FortiGate network security appliances. Covers firewall policy orchestration, Network Address Translation (NAT), user authentication, SSL/TLS inspection, security profiles, and enterprise threat mitigation.',
+    difficulty: 'Intermediate',
+    effort: 'Requires passing the comprehensive Fortinet Training Institute examination demonstrating proficiency in FortiGate system administration, UTM profiles, and network security operations.',
+    badgeId: '7860897770MA',
+    verifyUrl: 'https://training.fortinet.com',
+    skills: ['FortiOS 7.6', 'FortiGate Firewalls', 'Security Policies & NAT', 'SSL/TLS Inspection', 'UTM & Security Profiles', 'Network Monitoring']
+  },
+  {
     id: 'qualys-vmdr',
     title: 'Qualys Certified Specialist: Vulnerability Management (VMDR)',
     issuer: 'Qualys',
@@ -216,6 +230,34 @@ const certData = [
     badgeId: '34a46083-ca69-4d71-9213-b176aca517bf',
     verifyUrl: 'https://www.qualys.com/training/',
     skills: ['Qualys VMDR', 'TruRisk & QVS/QDS Scoring', 'Vulnerability Assessment', 'Patch Management', 'Asset Tagging & CSAM', 'Threat Prioritization']
+  },
+  {
+    id: 'fortinet-cloud',
+    title: 'Cybersecurity and Cloud Fundamentals 1.0',
+    issuer: 'Fortinet Training Institute',
+    image: '/certs/fortinet-cloud.png',
+    modalImage: '/certs/fortinet-cloud-full.png',
+    issueDate: 'August 2026',
+    description: 'Foundational certification covering cloud architecture security across IaaS, PaaS, and SaaS environments. Focuses on the shared responsibility model, multi-cloud defense strategies, Zero Trust network access, and cloud identity management.',
+    difficulty: 'Beginner',
+    effort: 'Requires completing the Fortinet curriculum and exam covering cloud threat landscapes, shared responsibility frameworks, and multi-cloud security fabric integration.',
+    badgeId: 'FNT-CCF10-20260831',
+    verifyUrl: 'https://training.fortinet.com',
+    skills: ['Cloud Security Fundamentals', 'Shared Responsibility Model', 'Multi-Cloud Security', 'Zero Trust Architecture', 'Identity & Access Management', 'Threat Defense']
+  },
+  {
+    id: 'fortinet-ngfw',
+    title: 'Introduction to Next Generation Firewall 1.0',
+    issuer: 'Fortinet Training Institute',
+    image: '/certs/fortinet-ngfw.png',
+    modalImage: '/certs/fortinet-ngfw-full.png',
+    issueDate: 'August 2026',
+    description: 'Comprehensive curriculum on Next-Generation Firewall (NGFW) technologies. Covers deep packet inspection (DPI), application control, intrusion prevention systems (IPS), antivirus scanning, web content filtering, and Fortinet Security Fabric architecture.',
+    difficulty: 'Beginner',
+    effort: 'Requires mastering NGFW concepts, application-aware security filtering, intrusion prevention mechanisms, and modern perimeter defense architectures.',
+    badgeId: 'FNT-NGFW10-20260831',
+    verifyUrl: 'https://training.fortinet.com',
+    skills: ['Next-Generation Firewall (NGFW)', 'Deep Packet Inspection (DPI)', 'Intrusion Prevention (IPS)', 'Application Control', 'Web Content Filtering', 'Security Fabric']
   },
   {
     id: 'google-python',
@@ -705,7 +747,7 @@ function App() {
                   1500,
                   '> Cybersecurity & Threat Analyst_',
                   1500,
-                  '> Qualys Certified Specialist (VMDR)_',
+                  '> Qualys & Fortinet Certified Specialist_',
                   1500,
                   '> Cisco & AWS Certified Professional_',
                   1500,
@@ -739,7 +781,7 @@ function App() {
                 Welcome! I'm <strong>Mark Angel Guevarra</strong>, a passionate Information Technology professional specializing in Cybersecurity, Network Administration, Vulnerability Management, and IT Automation. With a strong foundation in building secure, scalable systems, I thrive at the intersection of enterprise infrastructure and technical innovation.
               </p>
               <p>
-                I hold a Bachelor of Science in Information Technology and am driven by continuous learning—having earned 19 industry-recognized certifications from global tech leaders like <strong>Qualys, Google, Cisco, AWS, and Microsoft</strong>. Currently contributing as an <strong>IT Operations & Security Intern at Telework PH</strong>, I actively apply my skills across enterprise hardware, Slack-driven helpdesk triage, vulnerability remediation, and network defense to create resilient digital environments.
+                I hold a Bachelor of Science in Information Technology and am driven by continuous learning—having earned 22 industry-recognized certifications from global tech leaders like <strong>Qualys, Fortinet, Google, Cisco, AWS, and Microsoft</strong>. Currently contributing as an <strong>IT Operations & Security Intern at Telework PH</strong>, I actively apply my skills across enterprise hardware, Slack-driven helpdesk triage, vulnerability remediation, and network defense to create resilient digital environments.
               </p>
             </div>
           </section>
