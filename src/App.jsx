@@ -115,8 +115,14 @@ const projectsData = [
     ],
     gallery: [
       {
+        src: '/projects/gigpay-2.png',
+        title: 'Instant Gig Payouts & Zero-Middlemen Portal',
+        tag: 'Decentralized Platform',
+        description: 'Primary landing interface for APAC gig workers highlighting sub-5-second USDC cross-border settlements, Soroban smart escrow, and zero platform commissions.'
+      },
+      {
         src: '/projects/gigpay.png',
-        title: 'GigPay Platform Dashboard',
+        title: 'GigPay Escrow Agreements & Milestone Dashboard',
         tag: 'Platform Architecture',
         description: 'User interface demonstrating active freelance agreements, cryptographic milestone validation, and transparent on-chain escrow transaction auditing.'
       }
@@ -140,8 +146,14 @@ const projectsData = [
     ],
     gallery: [
       {
+        src: '/projects/klasspay-3.png',
+        title: 'Decentralized Split Payments & Zero Gas Pooling Engine',
+        tag: 'APAC Hackathon Showcase',
+        description: 'Primary landing and protocol interface built for the APAC Stellar Hackathon, highlighting trustless pooling on Soroban, gasless UX with FeeBumpTransactions, and local fiat offramp integration.'
+      },
+      {
         src: '/projects/klasspay-1.png',
-        title: 'KlassPay Web3 Application & Gasless Pooling Interface',
+        title: 'KlassPay Web3 Application & Pooling Interface',
         tag: 'Platform UI',
         description: 'Decentralized split-payment application interface featuring gasless FeeBumpTransaction sponsorship, trustless pooling milestones, and local fiat e-wallet offramp integration.'
       },
