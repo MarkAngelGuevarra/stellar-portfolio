@@ -121,7 +121,7 @@ const projectsData = [
         description: 'User interface demonstrating active freelance agreements, cryptographic milestone validation, and transparent on-chain escrow transaction auditing.'
       }
     ],
-    github: 'https://github.com/MarkAngelGuevarra/GigPay'
+    github: 'https://github.com/MarkAngelGuevarra/gigpay'
   },
   {
     id: 'klasspay',
@@ -151,7 +151,7 @@ const projectsData = [
         description: 'Selected project submission showcased at the APAC Stellar Demo Day Manila hosted at the GCash Office, competing for the $60,000 regional prize pool.'
       }
     ],
-    github: 'https://github.com/MarkAngelGuevarra/KlassPay'
+    github: 'https://github.com/MarkAngelGuevarra/klass-pay'
   },
   {
     id: 'sorobanauditor',
@@ -167,7 +167,7 @@ const projectsData = [
       'Automated detection of OWASP & CWE smart contract vulnerability patterns.',
       'Generated standardized audit reports with CVSS severity ratings and developer remediation guides.'
     ],
-    github: 'https://github.com/MarkAngelGuevarra/SorobanAuditor'
+    github: 'https://github.com/MarkAngelGuevarra/soroban-auditor'
   },
   {
     id: 'packet-tracer',
@@ -604,6 +604,7 @@ function App() {
   const [activeSkill, setActiveSkill] = useState(null);
   const [activeProject, setActiveProject] = useState(null);
   const [formStatus, setFormStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedId, setCopiedId] = useState(false);
 
   const handleCopyId = (id) => {
@@ -637,12 +638,26 @@ function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Escape key handler to close any active modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (activeCert) closeCertModal();
+        if (activeSkill) closeSkillModal();
+        if (activeProject) closeProjectModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeCert, activeSkill, activeProject]);
+
   const particlesInit = useCallback(async engine => {
     await loadSlim(engine);
   }, []);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     setFormStatus('Sending secure message...');
 
     const formData = new FormData(e.target);
@@ -666,6 +681,8 @@ function App() {
       }
     } catch (error) {
       setFormStatus('Error sending message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -949,7 +966,14 @@ function App() {
                   <label htmlFor="message">Message</label>
                   <textarea id="message" name="message" rows="5" required placeholder="Hello Mark..."></textarea>
                 </div>
-                <button type="submit" className="btn-primary form-submit clickable-card">Send Message</button>
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting} 
+                  className="btn-primary form-submit clickable-card" 
+                  style={isSubmitting ? { opacity: 0.7, cursor: 'not-allowed' } : {}}
+                >
+                  {isSubmitting ? 'Sending Message...' : 'Send Message'}
+                </button>
                 {formStatus && <p style={{color: 'var(--accent-cyan)', marginTop: '1rem', fontWeight: '600'}}>{formStatus}</p>}
               </form>
             </div>
@@ -966,7 +990,7 @@ function App() {
 
       {/* Certification Modal */}
       {activeCert && (
-        <div className="modal-backdrop" onClick={closeCertModal}>
+        <div className="modal-backdrop" onClick={closeCertModal} role="dialog" aria-modal="true" aria-label={activeCert.title}>
           <div className="modal-content modal-large glass-panel" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close clickable-card" onClick={closeCertModal}>✕</button>
             
@@ -1089,7 +1113,7 @@ function App() {
 
       {/* Skill Modal */}
       {activeSkill && (
-        <div className="modal-backdrop" onClick={closeSkillModal}>
+        <div className="modal-backdrop" onClick={closeSkillModal} role="dialog" aria-modal="true" aria-label={activeSkill.title}>
           <div className="modal-content glass-panel skill-modal" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close clickable-card" onClick={closeSkillModal}>✕</button>
             
@@ -1116,7 +1140,7 @@ function App() {
 
       {/* Project Modal */}
       {activeProject && (
-        <div className="modal-backdrop" onClick={closeProjectModal}>
+        <div className="modal-backdrop" onClick={closeProjectModal} role="dialog" aria-modal="true" aria-label={activeProject.title}>
           <div className="modal-content modal-large glass-panel" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close clickable-card" onClick={closeProjectModal}>✕</button>
             
