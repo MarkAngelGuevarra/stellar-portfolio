@@ -196,6 +196,15 @@ const projectsData = [
       'Implemented encrypted site-to-site communication via IPSec VPN and GRE tunneling.',
       'Hardened layer 2/3 infrastructure using DHCP Snooping, Dynamic ARP Inspection (DAI), and port security.',
       'Structured VLSM subnetting across departmental segments with extended access control lists.'
+    ],
+    github: 'https://github.com/MarkAngelGuevarra/Packet-Tracer-Labs',
+    gallery: [
+      {
+        src: '/projects/packet-tracer.png',
+        title: 'Cisco Network & Security Infrastructure Lab Repository',
+        tag: 'CCNA & CyberOps Labs',
+        description: 'Comprehensive enterprise networking repository containing fully configured Cisco Packet Tracer (.pkt/.pka) topologies, multi-area dynamic routing architectures, Layer 2 hardening, and VirtualBox CyberOps penetration testing environments.'
+      }
     ]
   },
   {
