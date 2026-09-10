@@ -3,9 +3,9 @@ import { TypeAnimation } from 'react-type-animation';
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import './App.css';
-import { skillsData } from './data/skills';
-import { projectsData } from './data/projects';
-import { certData } from './data/certs';
+import { skillsData } from './data/skills.jsx';
+import { projectsData } from './data/projects.js';
+import { certData } from './data/certs.js';
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = useState(false);
