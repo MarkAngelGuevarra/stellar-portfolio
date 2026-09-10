@@ -2,612 +2,10 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import './App.css'
-
-// Animated Icons
-const AnimatedShield = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animated-icon shield">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    <line x1="12" y1="8" x2="12" y2="16" className="scan-line" />
-  </svg>
-);
-
-const AnimatedGears = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animated-icon gears">
-    <circle cx="12" cy="12" r="3" />
-    <path className="gear-spin" d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-  </svg>
-);
-
-const AnimatedCloud = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animated-icon cloud">
-    <path className="cloud-pulse" d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
-  </svg>
-);
-
-const AnimatedChart = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animated-icon chart">
-    <line x1="18" y1="20" x2="18" y2="10" className="bar bar-1" />
-    <line x1="12" y1="20" x2="12" y2="4" className="bar bar-2" />
-    <line x1="6" y1="20" x2="6" y2="14" className="bar bar-3" />
-    <line x1="3" y1="20" x2="21" y2="20" />
-  </svg>
-);
-
-const skillsData = [
-  {
-    id: 'security',
-    title: 'Security & Networks',
-    shortDesc: 'Cybersecurity, Cisco Networking, Ethical Hacking, IAM, Firewall Configuration',
-    focus: 'Defending organizational assets and ensuring secure, uninterrupted connectivity.',
-    details: 'Extensive experience in penetration testing (Ethical Hacking), designing robust firewall architectures, managing Identity and Access Management (IAM) protocols, and implementing secure, enterprise-grade Cisco network topologies to thwart emerging cyber threats.',
-    Icon: AnimatedShield
-  },
-  {
-    id: 'automation',
-    title: 'Automation & Coding',
-    shortDesc: 'Python, Bash, Git, IT Automation',
-    focus: 'Eliminating manual overhead and accelerating IT workflows through code.',
-    details: 'Proficient in writing complex Python scripts for system administration, building Bash automation for Linux environments, and utilizing Git for version control. Focused on reducing human error and increasing operational efficiency through programmatic solutions.',
-    Icon: AnimatedGears
-  },
-  {
-    id: 'infrastructure',
-    title: 'Infrastructure',
-    shortDesc: 'Linux Administration, AWS Cloud Operations, IoT',
-    focus: 'Building, scaling, and maintaining the backbone of modern digital applications.',
-    details: 'Deep knowledge in administering enterprise Linux servers, architecting scalable, highly-available AWS Cloud Operations, and deploying resilient Internet of Things (IoT) ecosystems. Capable of managing both on-premise and cloud-native environments.',
-    Icon: AnimatedCloud
-  },
-  {
-    id: 'analytics',
-    title: 'Data & Analytics',
-    shortDesc: 'Data Science, Power BI, SQL',
-    focus: 'Transforming raw data into actionable business intelligence.',
-    details: 'Skilled in modern Data Science methodologies, writing efficient SQL queries for complex database management, and crafting dynamic, interactive dashboards with Microsoft Power BI to drive data-informed decision-making.',
-    Icon: AnimatedChart
-  }
-];
-
-const projectsData = [
-  {
-    id: 'cisco-congress',
-    title: 'Cisco Networking Academy Student Congress 2026',
-    category: 'Cybersecurity & Enterprise Networking',
-    icon: '🏆',
-    role: 'Baliuag University Delegate & Competitor',
-    date: 'January 2026 • Pampanga, Philippines',
-    description: 'Selected as official student delegate for Baliuag University at the 2026 Cisco Student Congress. Engaged with industry leaders, analyzed next-generation enterprise networking architectures, and competed in team-based network configuration and cybersecurity Capture-The-Flag (CTF) challenges on physical Cisco equipment.',
-    tech: ['Cisco IOS', 'Enterprise Routing (OSPF/EIGRP)', 'Network Security & ACLs', 'Packet Analysis', 'Team CTF'],
-    highlights: [
-      'Represented Baliuag University in regional technical conferences and hands-on networking competitions.',
-      'Configured physical Cisco routers, switches, and security appliances under strict time constraints.',
-      'Solved defensive cybersecurity CTF scenarios and analyzed packet captures in real-time.'
-    ],
-    gallery: [
-      {
-        src: '/projects/cisco-1.jpg',
-        title: 'Official Event Stage & Convention Backdrop',
-        tag: 'Official Venue',
-        description: 'The main stage and assembly of the 2026 Cisco Networking Academy Student Congress, convening leading IT student delegates, university faculty, and Cisco networking professionals under the theme of future-proofing enterprise networking skills.'
-      },
-      {
-        src: '/projects/cisco-2.jpg',
-        title: 'Baliuag University Delegation & CTF Lab Team',
-        tag: 'Competition & Lab Session',
-        description: 'Our university delegate team collaborating on-site during hands-on network cabling, topology routing setups, and defensive cybersecurity problem-solving on enterprise Cisco switches.'
-      }
-    ]
-  },
-  {
-    id: 'gigpay',
-    title: 'GigPay — Decentralized Escrow Marketplace',
-    category: 'Web3 & Blockchain',
-    icon: '⛓️',
-    role: 'Web3 & Backend Developer',
-    date: '2026',
-    description: 'A zero-fee peer-to-peer freelance escrow platform built on the Stellar blockchain. Automates trustless milestone fund release through custom smart contracts while ensuring cryptographic non-repudiation and off-chain data synchronization.',
-    tech: ['Stellar Blockchain', 'Soroban Smart Contracts', 'React', 'Supabase PostgreSQL'],
-    highlights: [
-      'Eliminated third-party escrow commission fees using on-chain smart contract conditions.',
-      'Synchronized real-time dispute resolution workflows and transaction history with Supabase.',
-      'Designed a non-custodial milestone-based fund disbursement protocol.'
-    ],
-    gallery: [
-      {
-        src: '/projects/gigpay-2.png',
-        title: 'Instant Gig Payouts & Zero-Middlemen Portal',
-        tag: 'Decentralized Platform',
-        description: 'Primary landing interface for APAC gig workers highlighting sub-5-second USDC cross-border settlements, Soroban smart escrow, and zero platform commissions.'
-      },
-      {
-        src: '/projects/gigpay.png',
-        title: 'GigPay Escrow Agreements & Milestone Dashboard',
-        tag: 'Platform Architecture',
-        description: 'User interface demonstrating active freelance agreements, cryptographic milestone validation, and transparent on-chain escrow transaction auditing.'
-      }
-    ],
-    demo: 'https://gigpay-gules.vercel.app',
-    github: 'https://github.com/MarkAngelGuevarra/gigpay'
-  },
-  {
-    id: 'klasspay',
-    title: 'KlassPay — Web3 Split-Payment Protocol',
-    category: 'Web3 & Fintech',
-    icon: '💸',
-    role: 'Full-Stack Web3 Developer',
-    date: '2026',
-    description: 'A decentralized shared-expense and split-payment application on the Stellar blockchain. Uses non-custodial smart contracts and Freighter wallet integration with FeeBumpTransaction support for smooth, gas-optimized pool payouts.',
-    tech: ['React', 'Vite', 'Soroban', 'Stellar SDK', 'TypeScript', 'Web3'],
-    highlights: [
-      'Integrated Freighter wallet authentication with seamless transaction signing.',
-      'Engineered smart contracts to safely lock, track, and disburse split contributions.',
-      'Implemented FeeBumpTransaction optimization for friction-free end-user transactions.'
-    ],
-    gallery: [
-      {
-        src: '/projects/klasspay-3.png',
-        title: 'Decentralized Split Payments & Zero Gas Pooling Engine',
-        tag: 'APAC Hackathon Showcase',
-        description: 'Primary landing and protocol interface built for the APAC Stellar Hackathon, highlighting trustless pooling on Soroban, gasless UX with FeeBumpTransactions, and local fiat offramp integration.'
-      },
-      {
-        src: '/projects/klasspay-1.png',
-        title: 'KlassPay Web3 Application & Pooling Interface',
-        tag: 'Platform UI',
-        description: 'Decentralized split-payment application interface featuring gasless FeeBumpTransaction sponsorship, trustless pooling milestones, and local fiat e-wallet offramp integration.'
-      },
-      {
-        src: '/projects/klasspay-2.png',
-        title: 'APAC Stellar Demo Day Manila Selection',
-        tag: 'Demo Day Finalist',
-        description: 'Selected project submission showcased at the APAC Stellar Demo Day Manila hosted at the GCash Office, competing for the $60,000 regional prize pool.'
-      }
-    ],
-    demo: 'https://klass-pay.vercel.app',
-    github: 'https://github.com/MarkAngelGuevarra/klass-pay'
-  },
-  {
-    id: 'sorobanauditor',
-    title: 'SorobanAuditor — Smart Contract Security Scanner',
-    category: 'Cybersecurity & Web3 SAST',
-    icon: '🛡️',
-    role: 'Lead Security Engineer & Developer',
-    date: '2026',
-    description: 'A specialized Static Application Security Testing (SAST) CLI framework developed in Python to audit Rust-based Stellar Soroban smart contracts for authorization bypasses, reentrancy vulnerabilities, and exposed secrets before mainnet deployment.',
-    tech: ['Python', 'AST Analysis', 'SAST', 'Rust Soroban', 'CWE Mapping', 'CLI'],
-    highlights: [
-      'Implemented Abstract Syntax Tree (AST) parsing to statically inspect contract execution paths.',
-      'Automated detection of OWASP & CWE smart contract vulnerability patterns.',
-      'Generated standardized audit reports with CVSS severity ratings and developer remediation guides.'
-    ],
-    github: 'https://github.com/MarkAngelGuevarra/soroban-auditor'
-  },
-  {
-    id: 'packet-tracer',
-    title: 'Enterprise Multi-Site Secure Network Simulation',
-    category: 'Cisco Enterprise Networking',
-    icon: '🌐',
-    role: 'Network Security Architect',
-    date: '2025 – 2026',
-    description: 'Designed and simulated a redundant multi-branch enterprise network topology in Cisco Packet Tracer. Features dynamic multi-area OSPF with MD5 authentication, GRE over IPSec VPN tunnels, VLAN segmentation, and perimeter firewall security.',
-    tech: ['Cisco IOS', 'Multi-Area OSPF', 'IPSec VPN', 'GRE Tunneling', 'VLAN / Trunking', 'Extended ACLs'],
-    highlights: [
-      'Implemented encrypted site-to-site communication via IPSec VPN and GRE tunneling.',
-      'Hardened layer 2/3 infrastructure using DHCP Snooping, Dynamic ARP Inspection (DAI), and port security.',
-      'Structured VLSM subnetting across departmental segments with extended access control lists.'
-    ],
-    github: 'https://github.com/MarkAngelGuevarra/Packet-Tracer-Labs',
-    gallery: [
-      {
-        src: '/projects/packet-tracer.png',
-        title: 'Cisco Network & Security Infrastructure Lab Repository',
-        tag: 'CCNA & CyberOps Labs',
-        description: 'Comprehensive enterprise networking repository containing fully configured Cisco Packet Tracer (.pkt/.pka) topologies, multi-area dynamic routing architectures, Layer 2 hardening, and VirtualBox CyberOps penetration testing environments.'
-      }
-    ]
-  },
-  {
-    id: 'securesync',
-    title: 'SecureSync Zero-Trust IAM Framework',
-    category: 'Cybersecurity & IAM',
-    icon: '🔐',
-    role: 'Security Engineer',
-    date: '2025',
-    description: 'An enterprise Identity and Access Management (IAM) framework built to enforce least-privilege access and zero-trust authentication across hybrid network assets, automated credential rotation, and multi-factor authentication policies.',
-    tech: ['Zero Trust', 'IAM Protocols', 'Python', 'Cryptography', 'Bash Automation'],
-    highlights: [
-      'Engineered automated credential rotation scripts with cryptographic hashing.',
-      'Implemented role-based access control (RBAC) schemas adhering to NIST cybersecurity standards.',
-      'Integrated real-time authentication logging and anomaly notification triggers.'
-    ]
-  },
-  {
-    id: 'mms',
-    title: 'Centralized Maintenance & Monitoring System (MMS)',
-    category: 'IT Automation & Operations',
-    icon: '📈',
-    role: 'Systems Analyst & Full-Stack Developer',
-    date: '2025 – 2026',
-    description: 'An enterprise campus facility maintenance, incident triage, and monitoring portal engineered for Baliuag University. Replaces manual paper-based facility requests with an automated, role-based digital workflow allowing students and faculty to log campus infrastructure faults, track ticketing lifecycles in real-time, coordinate with Facilities Management Services (FMS), and streamline campus operational dispatch.',
-    tech: ['JavaScript', 'HTML5 / CSS3', 'Vercel Edge Cloud', 'RESTful Workflows', 'Role-Based Access (RBAC)', 'ITSM & Ticketing', 'UI/UX Design'],
-    highlights: [
-      'Digitized institutional maintenance workflows for Baliuag University, eliminating paper delays and accelerating ticket triage.',
-      'Designed role-based access control (RBAC) separating student and faculty requesters from FMS administrative dispatchers.',
-      'Implemented real-time ticket metric tracking, campus building/room routing, calendar scheduling, and direct in-app messaging.',
-      'Architected and deployed the production prototype on Vercel with automated continuous deployment and edge caching.'
-    ],
-    demo: 'https://mms-prototype-liart.vercel.app',
-    github: 'https://github.com/MarkAngelGuevarra/mms-prototype',
-    gallery: [
-      {
-        src: '/projects/mms-1.png',
-        title: 'Baliuag University Authentication & Role Gate',
-        tag: 'Authentication Portal',
-        description: 'Official Baliuag University branded authentication portal supporting institutional (@baliuagu.edu.ph) identity verification, role-specific session gating (Student/Faculty vs FMS Administrator), and password recovery workflows.'
-      },
-      {
-        src: '/projects/mms-2.png',
-        title: 'Requester Telemetry & Incident KPI Dashboard',
-        tag: 'Operational Dashboard',
-        description: 'Centralized monitoring console displaying real-time ticket metrics (Total, Pending, Resolved), category-based work order breakdown, and instant status summaries in an ergonomic dark theme.'
-      },
-      {
-        src: '/projects/mms-3.png',
-        title: 'Service Ticket Submission & Campus Location Dispatch',
-        tag: 'Request Submission',
-        description: 'Structured issue reporting workflow capturing maintenance category (Electrical, HVAC, Plumbing, IT), precise campus building and room coordinates, SLA urgency levels, and an immediate editable queue of unprocessed work orders.'
-      },
-      {
-        src: '/projects/mms-4.png',
-        title: 'Searchable Ticket Lifecycle Registry',
-        tag: 'Ticket Tracking',
-        description: 'Unified request history table providing real-time search filtering across Ticket IDs, maintenance categories, and campus locations with end-to-end status visibility from submission to resolution.'
-      },
-      {
-        src: '/projects/mms-5.png',
-        title: 'Maintenance Operations Schedule & Interactive Calendar',
-        tag: 'Facility Scheduling',
-        description: 'Integrated monthly and weekly facility calendar mapping planned campus inspections, scheduled repair interventions, and preventative maintenance deadlines.'
-      },
-      {
-        src: '/projects/mms-6.png',
-        title: 'Direct Real-Time FMS Communication Channel',
-        tag: 'In-App Messaging',
-        description: 'Two-way messaging gateway enabling direct, authenticated communication between university requesters and Facilities Management Services (FMS) staff for live ticket clarifications.'
-      },
-      {
-        src: '/projects/mms-7.png',
-        title: 'Real-Time Incident & Status Notification Center',
-        tag: 'Audit & Alerts',
-        description: 'Centralized alert log delivering instant timestamped status updates (e.g., ticket marked as Resolved) and incoming dispatch notifications with status badges.'
-      },
-      {
-        src: '/projects/mms-8.png',
-        title: 'Requester Profile Management & Security Settings',
-        tag: 'User Security',
-        description: 'Self-service account dashboard allowing authenticated campus requesters to maintain contact profile credentials and securely perform password updates.'
-      },
-      {
-        src: '/projects/mms-9.png',
-        title: 'Production Vercel Cloud Architecture & CI/CD Pipeline',
-        tag: 'Cloud Deployment',
-        description: 'High-availability cloud deployment on the Vercel Edge Network (mms-prototype-liart.vercel.app) featuring automated Git-integrated branch builds, instant rollbacks, and continuous observability.'
-      }
-    ]
-  }
-];
-
-const certData = [
-  {
-    id: 'fortinet-operator',
-    title: 'FortiGate 7.6 Operator',
-    issuer: 'Fortinet Training Institute',
-    image: '/certs/fortinet-operator.png',
-    modalImage: '/certs/fortinet-operator-full.png',
-    issueDate: 'September 2026',
-    description: 'Validates operational mastery over FortiOS 7.6 and FortiGate network security appliances. Covers firewall policy orchestration, Network Address Translation (NAT), user authentication, SSL/TLS inspection, security profiles, and enterprise threat mitigation.',
-    difficulty: 'Intermediate',
-    effort: 'Requires passing the comprehensive Fortinet Training Institute examination demonstrating proficiency in FortiGate system administration, UTM profiles, and network security operations.',
-    badgeId: '7860897770MA',
-    verifyUrl: 'https://training.fortinet.com',
-    skills: ['FortiOS 7.6', 'FortiGate Firewalls', 'Security Policies & NAT', 'SSL/TLS Inspection', 'UTM & Security Profiles', 'Network Monitoring']
-  },
-  {
-    id: 'qualys-vmdr',
-    title: 'Qualys Certified Specialist: Vulnerability Management (VMDR)',
-    issuer: 'Qualys',
-    image: '/certs/qualys-vmdr.png',
-    modalImage: '/certs/qualys-vmdr-full.png',
-    issueDate: 'August 2026',
-    description: 'An enterprise-grade vulnerability management and threat prioritization certification issued by Qualys. Validates technical mastery in deploying the Qualys Cloud Platform, configuring network/agent sensors, analyzing TruRisk scores (QVS/QDS/ACS), mitigating Real Threat Indicators (RTIs), and executing patch remediation.',
-    difficulty: 'Advanced',
-    effort: 'Requires passing the official Qualys VMDR Specialist certification exam demonstrating mastery over asset discovery, vulnerability scoring, risk-based prioritization, and patch management.',
-    badgeId: '34a46083-ca69-4d71-9213-b176aca517bf',
-    verifyUrl: 'https://www.qualys.com/training/',
-    skills: ['Qualys VMDR', 'TruRisk & QVS/QDS Scoring', 'Vulnerability Assessment', 'Patch Management', 'Asset Tagging & CSAM', 'Threat Prioritization']
-  },
-  {
-    id: 'fortinet-cloud',
-    title: 'Cybersecurity and Cloud Fundamentals 1.0',
-    issuer: 'Fortinet Training Institute',
-    image: '/certs/fortinet-cloud.png',
-    modalImage: '/certs/fortinet-cloud-full.png',
-    issueDate: 'August 2026',
-    description: 'Foundational certification covering cloud architecture security across IaaS, PaaS, and SaaS environments. Focuses on the shared responsibility model, multi-cloud defense strategies, Zero Trust network access, and cloud identity management.',
-    difficulty: 'Beginner',
-    effort: 'Requires completing the Fortinet curriculum and exam covering cloud threat landscapes, shared responsibility frameworks, and multi-cloud security fabric integration.',
-    badgeId: 'FNT-CCF10-20260831',
-    verifyUrl: 'https://training.fortinet.com',
-    skills: ['Cloud Security Fundamentals', 'Shared Responsibility Model', 'Multi-Cloud Security', 'Zero Trust Architecture', 'Identity & Access Management', 'Threat Defense']
-  },
-  {
-    id: 'fortinet-ngfw',
-    title: 'Introduction to Next Generation Firewall 1.0',
-    issuer: 'Fortinet Training Institute',
-    image: '/certs/fortinet-ngfw.png',
-    modalImage: '/certs/fortinet-ngfw-full.png',
-    issueDate: 'August 2026',
-    description: 'Comprehensive curriculum on Next-Generation Firewall (NGFW) technologies. Covers deep packet inspection (DPI), application control, intrusion prevention systems (IPS), antivirus scanning, web content filtering, and Fortinet Security Fabric architecture.',
-    difficulty: 'Beginner',
-    effort: 'Requires mastering NGFW concepts, application-aware security filtering, intrusion prevention mechanisms, and modern perimeter defense architectures.',
-    badgeId: 'FNT-NGFW10-20260831',
-    verifyUrl: 'https://training.fortinet.com',
-    skills: ['Next-Generation Firewall (NGFW)', 'Deep Packet Inspection (DPI)', 'Intrusion Prevention (IPS)', 'Application Control', 'Web Content Filtering', 'Security Fabric']
-  },
-  {
-    id: 'google-python',
-    title: 'Google IT Automation with Python Professional',
-    issuer: 'Google',
-    image: '/certs/google-python.png',
-    modalImage: '/certs/google-python-full.png',
-    issueDate: 'July 2026',
-    description: 'A comprehensive multi-course professional program developed by Google engineering. Validates hands-on proficiency in Python scripting, Git/GitHub version control, Linux system administration, and large-scale IT infrastructure automation.',
-    difficulty: 'Advanced',
-    effort: 'Requires passing rigorous programming assignments, mastering version control with Git, and automating system administration tasks with Python scripts.',
-    badgeId: 'ac8499cf-025c-4b72-84b1-92f836ad95b7',
-    verifyUrl: 'https://www.credly.com/badges/ac8499cf-025c-4b72-84b1-92f836ad95b7',
-    skills: ['Python 3', 'Git & GitHub', 'System Automation', 'Bash/Linux CLI', 'Unit Testing', 'Configuration Management']
-  },
-  {
-    id: 'google-cyber',
-    title: 'Google Cybersecurity Professional',
-    issuer: 'Google',
-    image: '/certs/google-cyber.png',
-    modalImage: '/certs/google-cyber-full.png',
-    issueDate: 'July 2026',
-    description: 'An industry-aligned professional credential covering enterprise cybersecurity operations, threat modeling, SIEM tool analysis, Linux network security, and defensive incident response workflows.',
-    difficulty: 'Intermediate',
-    effort: 'Requires completing multiple hands-on labs simulating real-world security breaches, configuring firewalls, and analyzing packet captures.',
-    badgeId: '851998ed-3d5b-4ed3-93b5-63ec5bb29e60',
-    verifyUrl: 'https://www.credly.com/badges/851998ed-3d5b-4ed3-93b5-63ec5bb29e60',
-    skills: ['SIEM (Splunk/Chronicle)', 'Network Security', 'Python for Security', 'Linux & SQL', 'Incident Detection', 'NIST Framework']
-  },
-  {
-    id: 'aws-cloud',
-    title: 'AWS Academy Graduate: Cloud Operations',
-    issuer: 'Amazon Web Services',
-    image: '/certs/aws-cloud.png',
-    modalImage: '/certs/aws-cloud-full.png',
-    issueDate: 'January 2026',
-    description: 'Prepares IT professionals for enterprise cloud operations, focusing on deploying, managing, securing, and operating scalable, fault-tolerant infrastructure on Amazon Web Services (AWS).',
-    difficulty: 'Advanced',
-    effort: 'Requires a deep understanding of AWS services, networking, and security, proven through complex infrastructure deployment labs.',
-    badgeId: '8a510a04-b86d-4170-afc3-34e387a1a4e7',
-    verifyUrl: 'https://www.credly.com/org/amazon-web-services/badge/aws-academy-graduate-aws-academy-cloud-operations',
-    skills: ['AWS EC2 & S3', 'IAM & Security Policies', 'VPC & Networking', 'CloudWatch Monitoring', 'High Availability']
-  },
-  {
-    id: 'microsoft-excel',
-    title: 'Microsoft Office Specialist: Excel Associate',
-    issuer: 'Microsoft',
-    image: '/certs/microsoft.png',
-    modalImage: '/certs/microsoft-full.png',
-    issueDate: '2024',
-    description: 'Validates professional mastery in advanced spreadsheet engineering, nested formula logic, dynamic data modeling, workbook optimization, and executive reporting analytics.',
-    difficulty: 'Intermediate',
-    effort: 'Requires passing a strict, timed, proctored exam demonstrating mastery over advanced data manipulation and complex nested formulas.',
-    badgeId: '47299149',
-    verifyUrl: 'https://verify.certiport.com',
-    skills: ['Advanced Formulas', 'Data Analysis', 'Pivot Tables & Charts', 'Lookup Functions', 'Workbook Optimization']
-  },
-  {
-    id: 'cisco-ethical',
-    title: 'Ethical Hacker',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-ethical.png',
-    modalImage: '/certs/cisco-ethical-full.png',
-    issueDate: 'July 2025',
-    description: 'Offensive security certification focusing on penetration testing methodologies, network reconnaissance, vulnerability identification, exploitation techniques, and defensive hardening.',
-    difficulty: 'Advanced',
-    effort: 'Requires passing intensive penetration testing labs, mastering reconnaissance, scanning, gaining access, and covering tracks.',
-    badgeId: 'b5d36473-5cfb-4281-85ea-a4f26ae85439',
-    verifyUrl: 'https://www.credly.com/badges/b5d36473-5cfb-4281-85ea-a4f26ae85439',
-    skills: ['Penetration Testing', 'Reconnaissance & Footprinting', 'Vulnerability Exploitation', 'Post-Exploitation', 'Threat Remediation']
-  },
-  {
-    id: 'cisco-linux',
-    title: 'Linux Essentials',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-linux.png',
-    modalImage: '/certs/cisco-linux-full.png',
-    issueDate: '2025',
-    description: 'Validates foundational and practical knowledge of open-source Linux operating systems, terminal file management, permission structures, process handling, and Bash scripting.',
-    difficulty: 'Intermediate',
-    effort: 'Requires navigating the Linux command line, managing files, understanding permissions, and basic bash scripting.',
-    badgeId: 'dd8c9f3f-ebc3-4b1c-bafe-ba3721074683',
-    verifyUrl: 'https://www.credly.com/badges/dd8c9f3f-ebc3-4b1c-bafe-ba3721074683',
-    skills: ['Linux Kernel & Shell', 'File Permissions & Users', 'Bash Scripting', 'Package Management', 'Process Control']
-  },
-  {
-    id: 'cisco-networking',
-    title: 'Networking Basics',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-networking.png',
-    modalImage: '/certs/cisco-networking-full.png',
-    issueDate: '2025',
-    description: 'Covers the core architecture, protocols, models (OSI and TCP/IP), IPv4/IPv6 addressing schemes, and subnetting strategies used to power modern enterprise networks.',
-    difficulty: 'Intermediate',
-    effort: 'Requires understanding the OSI and TCP/IP models, IP addressing, and configuring basic network topologies.',
-    badgeId: '3fd3c79f-1906-4631-a788-986747166767',
-    verifyUrl: 'https://www.credly.com/badges/3fd3c79f-1906-4631-a788-986747166767',
-    skills: ['OSI & TCP/IP Models', 'IPv4 & IPv6 Subnetting', 'Cisco IOS CLI', 'Routing & Switching Basics', 'Topology Design']
-  },
-  {
-    id: 'cisco-os-basics',
-    title: 'Operating Systems Basics',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-os-basics.png',
-    modalImage: '/certs/cisco-os-basics-full.png',
-    issueDate: '2025',
-    description: 'Provides in-depth knowledge of operating system architectures, memory management, process synchronization, security perimeters, and cross-platform management.',
-    difficulty: 'Beginner',
-    effort: 'Requires grasping process management, memory management, and file systems across Windows and Linux environments.',
-    badgeId: 'f7bc993d-1a03-4257-af44-911cce59d82a',
-    verifyUrl: 'https://www.credly.com/badges/f7bc993d-1a03-4257-af44-911cce59d82a',
-    skills: ['Process Scheduling', 'Virtual Memory & File Systems', 'Windows & Linux Admin', 'Hardware Abstraction']
-  },
-  {
-    id: 'cisco-hardware',
-    title: 'Computer Hardware Basics',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-hardware.png',
-    modalImage: '/certs/cisco-hardware-full.png',
-    issueDate: '2025',
-    description: 'Focuses on motherboard architectures, CPU/GPU subsystems, storage bus technologies, memory configurations, diagnostics, and component lifecycle maintenance.',
-    difficulty: 'Beginner',
-    effort: 'Requires identifying components, understanding their functions, and solving practical hardware failure scenarios.',
-    badgeId: '5d7f447d-c596-49f3-b780-cfb8a831c15d',
-    verifyUrl: 'https://www.credly.com/badges/5d7f447d-c596-49f3-b780-cfb8a831c15d',
-    skills: ['PC Architecture', 'Motherboard & CPU Diagnostics', 'Storage & RAID', 'Hardware Assembly & Safety']
-  },
-  {
-    id: 'cisco-ite',
-    title: 'IT Essentials',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-ite.png',
-    modalImage: '/certs/cisco-ite-full.png',
-    issueDate: '2025',
-    description: 'Comprehensive curriculum spanning computer hardware, operating systems, mobile devices, security basics, networking protocols, and enterprise troubleshooting.',
-    difficulty: 'Intermediate',
-    effort: 'Requires passing extensive theoretical exams and practical labs covering hardware diagnostics and software configurations.',
-    badgeId: '8c6d1b2e-3905-424e-ae40-0cffdded1655',
-    verifyUrl: 'https://www.credly.com/badges/8c6d1b2e-3905-424e-ae40-0cffdded1655',
-    skills: ['Hardware & Software Diagnostics', 'Operating System Installation', 'Networking Setup', 'Client Security Protocols']
-  },
-  {
-    id: 'cisco-ai',
-    title: 'Introduction to Modern AI',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-ai.png',
-    modalImage: '/certs/cisco-ai-full.png',
-    issueDate: '2026',
-    description: 'Explores artificial intelligence paradigms, neural networks, machine learning algorithms, large language models (LLMs), and ethical AI deployment in enterprise environments.',
-    difficulty: 'Intermediate',
-    effort: 'Requires grasping the concepts of neural networks, data modeling, and ethical considerations in AI deployment.',
-    badgeId: 'b0527a73-a92c-4ab2-85dd-27e529084793',
-    verifyUrl: 'https://www.credly.com/badges/b0527a73-a92c-4ab2-85dd-27e529084793',
-    skills: ['Neural Networks', 'Machine Learning Workflows', 'Generative AI & LLMs', 'AI Ethics & Deployment']
-  },
-  {
-    id: 'cisco-iot',
-    title: 'Introduction to IoT',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-iot.png',
-    modalImage: '/certs/cisco-iot-full.png',
-    issueDate: '2025',
-    description: 'Covers edge device sensors, embedded architectures, industrial telemetry, wireless IoT standards, and telemetry data pipeline integration with cloud backends.',
-    difficulty: 'Beginner',
-    effort: 'Requires understanding IoT architectures, sensor networks, and data flow from edge devices to the cloud.',
-    badgeId: '14ff4624-5864-47c4-8068-2b35bbd08f8c',
-    verifyUrl: 'https://www.credly.com/badges/14ff4624-5864-47c4-8068-2b35bbd08f8c',
-    skills: ['Sensor Architectures', 'Edge Computing', 'Microcontrollers & Telemetry', 'IoT Security Fundamentals']
-  },
-  {
-    id: 'cisco-data-science',
-    title: 'Introduction to Data Science',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-data-science.png',
-    modalImage: '/certs/cisco-data-science-full.png',
-    issueDate: '2025',
-    description: 'Provides practical grounding in statistical data analysis, data cleaning pipelines, exploratory visualization, and extracting predictive patterns using Python data stacks.',
-    difficulty: 'Intermediate',
-    effort: 'Requires applying statistical methods and utilizing Python libraries to extract insights from raw datasets.',
-    badgeId: 'e96f5357-69b0-4416-ad9d-d51818948396',
-    verifyUrl: 'https://www.credly.com/badges/e96f5357-69b0-4416-ad9d-d51818948396',
-    skills: ['Data Cleaning & Wrangling', 'Python Analytics', 'Exploratory Data Analysis', 'Statistical Inference']
-  },
-  {
-    id: 'cisco-data-analytics',
-    title: 'Data Analytics Essentials',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-data-analytics.png',
-    modalImage: '/certs/cisco-data-analytics-full.png',
-    issueDate: '2025',
-    description: 'Focuses on analytical reasoning, structured SQL queries, data warehousing concepts, and converting complex enterprise datasets into actionable intelligence.',
-    difficulty: 'Intermediate',
-    effort: 'Requires building data pipelines, cleaning datasets, and generating comprehensive reports using analytics tools.',
-    badgeId: '87cb6c58-e1d1-48c7-96d6-bf68b7b1f243',
-    verifyUrl: 'https://www.credly.com/badges/87cb6c58-e1d1-48c7-96d6-bf68b7b1f243',
-    skills: ['Data Pipelines', 'SQL Data Extraction', 'Visual Reporting', 'KPI Metric Modeling']
-  },
-  {
-    id: 'cisco-cyber',
-    title: 'Introduction to Cybersecurity',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-cyber.png',
-    modalImage: '/certs/cisco-cyber-full.png',
-    issueDate: '2025',
-    description: 'Explores global cyber threat landscapes, malware categories, defense-in-depth principles, cryptography foundations, and enterprise data privacy protection.',
-    difficulty: 'Beginner',
-    effort: 'Requires understanding core security principles, threat vectors, and basic mitigation strategies.',
-    badgeId: '437f35d9-be6e-42d4-90f7-3b221725e2d5',
-    verifyUrl: 'https://www.credly.com/badges/437f35d9-be6e-42d4-90f7-3b221725e2d5',
-    skills: ['CIA Triad', 'Malware Analysis', 'Authentication & Cryptography', 'Defense-in-Depth']
-  },
-  {
-    id: 'cisco-digital-awareness',
-    title: 'Digital Awareness',
-    issuer: 'Cisco Networking Academy',
-    image: '/certs/cisco-digital-awareness.png',
-    modalImage: '/certs/cisco-digital-awareness-full.png',
-    issueDate: '2025',
-    description: 'Focuses on digital identity defense, privacy regulations, safe organizational communication, and mitigating social engineering and phishing tactics.',
-    difficulty: 'Beginner',
-    effort: 'Requires demonstrating proficiency in digital communication, privacy, and online safety best practices.',
-    badgeId: 'c425f47e-9cb1-4262-95a2-e55f5f630cc4',
-    verifyUrl: 'https://www.credly.com/badges/c425f47e-9cb1-4262-95a2-e55f5f630cc4',
-    skills: ['Digital Footprint Defense', 'Data Privacy Regulations', 'Phishing & Threat Identification', 'Safe Collaboration']
-  },
-  {
-    id: 'fit-dbms',
-    title: 'Smartbooks & Power BI DBMS',
-    issuer: 'FIT Academy',
-    image: '/certs/fit-academy.png',
-    modalImage: '/certs/fit-academy-full.png',
-    issueDate: '2025',
-    description: 'Specialized enterprise training in relational database schema design, normalized data modeling, DAX query logic, and dynamic Microsoft Power BI dashboard development.',
-    difficulty: 'Advanced',
-    effort: 'Requires designing complex relational databases and building interactive, dynamic Power BI dashboards from scratch.',
-    badgeId: '4abc3aebb5b251a9a4fc3fbbf7a4113023300bb9ec39e6efc4c7b57705c9d749',
-    verifyUrl: '#',
-    skills: ['Relational DB Design', 'Power BI Dashboards', 'DAX Calculations', 'Data Modeling', 'Business Intelligence']
-  },
-  {
-    id: 'eastwest-cyber1',
-    title: 'Introduction to Cybersecurity 1',
-    issuer: 'East West',
-    image: '/certs/eastwest-cyber.png',
-    modalImage: '/certs/eastwest-cyber-full.png',
-    issueDate: '2024',
-    description: 'Foundational certification covering the core pillars of organizational security, risk governance, perimeter defense controls, and access management standards.',
-    difficulty: 'Beginner',
-    effort: 'Requires understanding the CIA triad, risk management, and fundamental access control mechanisms.',
-    badgeId: '55dd99a5-f7ff-41d4-8076-484f2fb80e0d',
-    verifyUrl: '#',
-    skills: ['Information Assurance', 'Risk Management', 'Security Policies & Audits', 'Access Controls']
-  }
-];
+import './App.css';
+import { skillsData } from './data/skills';
+import { projectsData } from './data/projects';
+import { certData } from './data/certs';
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = useState(false);
@@ -619,7 +17,7 @@ function FadeInSection(props) {
         if (entry.isIntersecting) {
           setVisible(true);
           // Only animate once
-          if(domRef.current) observer.unobserve(domRef.current);
+          if (domRef.current) observer.unobserve(domRef.current);
         }
       });
     }, { threshold: 0.1 });
@@ -685,6 +83,7 @@ function App() {
   const [activeCert, setActiveCert] = useState(null);
   const [activeSkill, setActiveSkill] = useState(null);
   const [activeProject, setActiveProject] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedId, setCopiedId] = useState(false);
@@ -720,13 +119,14 @@ function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Escape key handler to close any active modal
+  // Escape key handler to close any active modal or mobile menu
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         if (activeCert) closeCertModal();
         if (activeSkill) closeSkillModal();
         if (activeProject) closeProjectModal();
+        setMobileMenuOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -756,12 +156,12 @@ function App() {
       });
       
       if (response.ok) {
-        setFormStatus('Message securely sent! (Check your email for 1st-time activation)');
+        setFormStatus("Message securely sent! I'll get back to you shortly.");
         e.target.reset();
       } else {
         setFormStatus('Error sending message. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setFormStatus('Error sending message. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -808,6 +208,7 @@ function App() {
       <nav className="navbar glass-panel">
         <div className="nav-content container">
           <h2 className="logo">Mark.</h2>
+          
           <div className="nav-links">
             <a href="#about">About</a>
             <a href="#timeline">Journey</a>
@@ -816,7 +217,30 @@ function App() {
             <a href="#certifications">Certifications</a>
             <a href="#contact">Contact</a>
           </div>
+
+          {/* Mobile Hamburger Toggle Button */}
+          <button 
+            className={`mobile-menu-toggle ${mobileMenuOpen ? 'open' : ''}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
         </div>
+
+        {/* Mobile Dropdown Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="mobile-nav-dropdown animate-fade-in">
+            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
+            <a href="#timeline" onClick={() => setMobileMenuOpen(false)}>Journey</a>
+            <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills</a>
+            <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+            <a href="#certifications" onClick={() => setMobileMenuOpen(false)}>Certifications</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+          </div>
+        )}
       </nav>
 
       <main className="container">
@@ -1336,7 +760,7 @@ function App() {
         </div>
       )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
