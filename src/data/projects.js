@@ -30,19 +30,26 @@ export const projectsData = [
   },
   {
     id: 'gigpay',
-    title: 'GigPay — Decentralized Escrow Marketplace',
-    category: 'Web3 & Blockchain',
+    title: 'GigPay — Decentralized Escrow Protocol',
+    category: 'Web3 & Soroban Smart Contracts',
     icon: '⛓️',
-    role: 'Web3 & Backend Developer',
-    date: '2026',
-    description: 'A zero-fee peer-to-peer freelance escrow platform built on the Stellar blockchain. Automates trustless milestone fund release through custom smart contracts while ensuring cryptographic non-repudiation and off-chain data synchronization.',
-    tech: ['Stellar Blockchain', 'Soroban Smart Contracts', 'React', 'Supabase PostgreSQL'],
+    role: 'Founder & Lead Web3 Architect',
+    date: '2026 • Stellar Community Fund (SCF) Instawards Grantee',
+    description: 'A decentralized milestone escrow protocol built on the Stellar network and Soroban smart contracts. Backed by the Stellar Community Fund (SCF) Instawards and selected for presentation at the Blockchain Campus Conference (BCC 2026) at University of Makati. Eliminates freelance payment delays and platform commissions using trustless smart contract escrows with instant sub-5 second settlement.',
+    tech: ['Stellar Network', 'Soroban Smart Contracts', 'Rust SDK', 'React', 'Vite', 'Supabase PostgreSQL', 'Web3 Escrow'],
     highlights: [
-      'Eliminated third-party escrow commission fees using on-chain smart contract conditions.',
-      'Synchronized real-time dispute resolution workflows and transaction history with Supabase.',
-      'Designed a non-custodial milestone-based fund disbursement protocol.'
+      'Recipient of the Stellar Community Fund (SCF) Instawards Grant 2026 for Web3 freelance financial inclusion.',
+      'Eliminated up to 20% third-party take rates with no platform commission on Stellar Soroban smart contracts.',
+      'Built multi-party real-time state synchronization (<5 ms) and automated dispute freeze mechanisms.',
+      'Official student delegate, panel speaker, and project exhibitor at BCC 2026 (University of Makati).'
     ],
     gallery: [
+      {
+        src: '/projects/gigpay-bcc.jpg',
+        title: 'GigPay at BCC 2026 — University of Makati Keynote & Exhibition',
+        tag: 'Campus Conference & Exhibition',
+        description: 'Official keynote exhibition poster for the Blockchain Campus Conference 2026 at University of Makati, featuring live interactive escrow testing, student onboarding, and panel session.'
+      },
       {
         src: '/projects/gigpay-2.png',
         title: 'Instant Gig Payouts & Zero-Middlemen Portal',
@@ -53,10 +60,10 @@ export const projectsData = [
         src: '/projects/gigpay.png',
         title: 'GigPay Escrow Agreements & Milestone Dashboard',
         tag: 'Platform Architecture',
-        description: 'User interface demonstrating active freelance agreements, cryptographic milestone validation, and transparent on-chain escrow transaction auditing.'
+        description: 'User interface demonstrating active freelance agreements, cryptographic milestone validation, and transparent on-chain escrow transaction auditing on Stellar Testnet.'
       }
     ],
-    demo: 'https://gigpay-gules.vercel.app',
+    demo: 'https://gigpay.tech',
     github: 'https://github.com/MarkAngelGuevarra/gigpay'
   },
   {
@@ -66,10 +73,10 @@ export const projectsData = [
     icon: '💸',
     role: 'Full-Stack Web3 Developer',
     date: '2026',
-    description: 'A decentralized shared-expense and split-payment application on the Stellar blockchain. Uses non-custodial smart contracts and Freighter wallet integration with FeeBumpTransaction support for smooth, gas-optimized pool payouts.',
-    tech: ['React', 'Vite', 'Soroban', 'Stellar SDK', 'TypeScript', 'Web3'],
+    description: 'A decentralized shared-expense and split-payment application on the Stellar blockchain. Uses non-custodial smart contracts and Varial (formerly Freighter) wallet integration with FeeBumpTransaction support for smooth, gas-optimized pool payouts.',
+    tech: ['React', 'Vite', 'Soroban', 'Stellar SDK', 'Varial Wallet', 'FeeBump', 'TypeScript'],
     highlights: [
-      'Integrated Freighter wallet authentication with seamless transaction signing.',
+      'Integrated Varial (formerly Freighter) wallet authentication with seamless transaction signing.',
       'Engineered smart contracts to safely lock, track, and disburse split contributions.',
       'Implemented FeeBumpTransaction optimization for friction-free end-user transactions.'
     ],

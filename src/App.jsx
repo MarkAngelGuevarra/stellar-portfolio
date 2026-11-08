@@ -280,6 +280,8 @@ function App() {
             <div className="hero-subtitle type-wrap">
               <TypeAnimation
                 sequence={[
+                  '> Founder & Lead Web3 Architect @ GigPay (Stellar Instawards)_',
+                  1500,
                   '> IT Operations & Security Intern @ Telework PH_',
                   1500,
                   '> Cybersecurity & Threat Analyst_',
@@ -399,6 +401,12 @@ function App() {
                   <div className="project-header">
                     <span className="project-icon">{project.icon}</span>
                     <span className="project-category">{project.category}</span>
+                    {project.demo && (
+                      <span style={{ marginLeft: 'auto', background: 'rgba(0, 242, 254, 0.15)', color: '#00f2fe', border: '1px solid rgba(0, 242, 254, 0.4)', borderRadius: '999px', padding: '0.15rem 0.55rem', fontSize: '0.72rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00f2fe', display: 'inline-block' }}></span>
+                        Live dApp
+                      </span>
+                    )}
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
@@ -733,10 +741,10 @@ function App() {
                   target="_blank" 
                   rel="noreferrer" 
                   className="btn-primary clickable-card" 
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', background: 'linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)', color: '#090d16', fontWeight: 'bold' }}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                  Live Application
+                  Live dApp / Website
                 </a>
               )}
               {activeProject.github && (
